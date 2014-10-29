@@ -26,9 +26,9 @@
       <div class="header">
         <h3 class="text-muted">sounds</h3>
       </div>
-      <div ng-repeat="song in ctrl.available">
+      <div ng-repeat="(song, songData) in ctrl.available">
         <!-- <button ng-class="song.status ? 'btn-success': 'btn-danger'" class="btn" ng-click="ctrl.onClick(song.name)">{{song.title}}</button> -->
-        <button ng-class="{'btn-success': song.status == false, 'btn-danger': song.status == true}" class="btn" ng-click="ctrl.onClick(song.name)">{{song.title}}</button>
+        <button ng-class="{'btn-success': songData.status == false, 'btn-danger': songData.status == true}" class="btn" ng-click="ctrl.onClick(song)">{{songData.title}}</button>
       </div>
       <a href="#" class="btn" ng-click="ctrl.playToggle()">toggle {{ctrl.globalSound}}</a>
 

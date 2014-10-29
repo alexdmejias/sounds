@@ -32,18 +32,18 @@ angular.module('soundsApp')
   // boolean, whether there the sound is currently on
   self.globalSound = false;
 
-  self.available = [
-    {
-      name: 'rain',
+  self.available = {
+    rain: {
       title: 'Rain',
       url: 'rain.mp3',
-      status: false
-    }, {
-      name:'birds',
+      status: false,
+    },
+    birds: {
       title: 'Birds',
-      url: 'test.mp3'
+      url: 'test.mp3',
+      status: false,
     }
-  ];
+  };
 
   self.toggleGlobalSound = function() {
     if (self.globalSound === false) {
@@ -70,29 +70,39 @@ angular.module('soundsApp')
 
   // toggles the status of a song. Creates it if necessary
   self.toggleSong = function(name) {
-    var songIndex = self._findbyName(name);
-    if (!self.available[songIndex].status) {
-      self.songAdd(name);
+      console.log(name);
+    if (typeof(self.available[name]['song']) == 'undefined') {
+        self.songAdd(name);
     } else {
-      self.songRemove(name);
+        if (self.available[name].status) {
+            self.songRemove(name);
+        } else {
+            console.log('toggled?');
+            self.available[name].song.play();
+            self.available[name].status = !self.available[name].status;
+        }
     }
   }
 
   // adds a song to the self.playing model
   self.songAdd = function(name) {
-    var songIndex = self._findbyName(name);
+    console.log('wasd');
+    //var songIndex = self._findbyName(name);
 
-    self.playing[name] = { song: newSong(soundsBase + self.available[songIndex].url ), status: false };
-    self.available[songIndex].status = true;
+    //self.playing[name] = { song: newSong(soundsBase + self.available[songIndex].url ), status: false };
+    self.available[name].song = newSong(soundsBase + self.available[name].url);
+    self.available[name].status = !self.available[name].status;
+    //self.available[songIndex].status = true;
   }
   // removes a song from the self.playing model
   self.songRemove = function(name) {
-    self.playing[name].song.pause();
-    delete self.playing[name];
+    self.available[name].song.pause();
+    self.available[name].status = !self.available[name].status;
+    //delete self.playing[name];
 
-    self.available.forEach(function(a,b,c) {
+    /*self.available.forEach(function(a,b,c) {
       a.status = false;
-    });
+    });*/
 
   }
 
