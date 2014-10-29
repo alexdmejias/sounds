@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 /**
  * @ngdoc function
@@ -8,83 +8,103 @@
  * Controller of the soundsApp
  */
  function newSong(songName) {
-    console.log(songName || 'no song nmae');
-    var song = new Audio(songName);
-    song.loop = true;
-    song.play();
-    return song;
+  var song = new Audio(songName);
+  song.loop = true;
+  song.play();
+
+  return song;
  }
 
+// var someOBj = {
+//   rain: rainObjWMethods,
+//   birds: birdObjWMethods
+// }
+
+// someOBj[key].play()
 angular.module('soundsApp')
   .constant('soundsBase', '/sounds/')
   .service('newSong', [newSong])
-  .controller('MainCtrl', function (soundsBase) {
-  	var self = this;
+  .controller('MainCtrl', function (soundsBase, Playing) {
+  var self = this;
 
-    // songs currently being played
-    self.playing = [];
-    // boolean, whether there the sound is currently on
-    self.songsPlaying = false;
+  // songs currently being played
+  self.playing = {};
+  // boolean, whether there the sound is currently on
+  self.globalSound = false;
 
-
-    self.songs = [
-        {
-            name: 'rain',
-            title: 'Rain',
-            url: 'rain.mp3'
-        }, {
-            name:'birds',
-            title: 'Birds',
-            url: 'birds.mp3'
-        }
-    ];
-
-    self.onClick = function(title) {
-    	self.toggleSong(title);
-    };
-
-    self.toggleSong = function(name) {
-        for (var i = 0; i < self.songs.length; i++) {
-            if (self.songs[i].name == name) {
-                if (!self.songs[i].status) {
-                    // self.playing[name] = new Audio(soundsBase + self.songs[i].url);
-                    self.playing[name] = newSong(soundsBase + self.songs[i].url);
-                    // self.playing[name].play();
-                    self.songs[i].status = true;
-                } else {
-                    self.playing[name].pause();
-                    var index = self.playing.indexOf(name);
-                    self.playing.splice(i, 1);
-                    self.songs[i].status = false;
-                }
-            }
-        };
-    };
-
-    self.playToggle = function() {
-
+  self.available = [
+    {
+      name: 'rain',
+      title: 'Rain',
+      url: 'rain.mp3',
+      status: false
+    }, {
+      name:'birds',
+      title: 'Birds',
+      url: 'test.mp3'
     }
+  ];
 
+  self.toggleGlobalSound = function() {
+    if (self.globalSound === false) {
 
-  //   self.playToggle = function() {
-		// console.log(self.status);
-		// if (self.status) {
-	 //    	for (var i = 0; i < self.playlist.length; i++) {
-	 //    		self.playing[i].pause();
-	 //    	}
-		// } else {
-	 //    	for (var j = 0; j < self.playlist.length; j++) {
-	 //    		self.playing[j].play();
-  //   		}
-  //   	}
-  //   	self.status = !self.status;
-  //   };
+      self.playing['rain'].play();
+      // self.playing[0].play();
+    } else {
+      self.playing['rain'].pause();
+    }
+    self.globalSound = !self.globalSound;
+  }
 
-    // function Sound(name) {
-    //     var sound = new Audio('sounds/' + self.songs[name].url );
-    //     return sound;
-    // };
+  // cycle through the available songs, and find
+  // return the index of the song that matches the 
+  // object name with the given param.
+  self._findbyName = function(name) {
+    for (var i = 0; i < self.available.length; i++) {
+      if (self.available[i].name == name) {
+        break;
+      }
+    }
+    return i;
+  }
 
+  // toggles the status of a song. Creates it if necessary
+  self.toggleSong = function(name) {
+    var songIndex = self._findbyName(name);
+    if (!self.available[songIndex].status) {
+      self.songAdd(name);
+    } else {
+      self.songRemove(name);
+    }
+  }
 
+  // adds a song to the self.playing model
+  self.songAdd = function(name) {
+    var songIndex = self._findbyName(name);
 
-  });
+    self.playing[name] = { song: newSong(soundsBase + self.available[songIndex].url ), status: false };
+    self.available[songIndex].status = true;
+  }
+  // removes a song from the self.playing model
+  self.songRemove = function(name) {
+    self.playing[name].song.pause();
+    delete self.playing[name];
+
+    self.available.forEach(function(a,b,c) {
+      a.status = false;
+    });
+
+  }
+
+  // toggles play/pause of the application
+  self.playToggle = function() {
+    self.toggleGlobalSound();
+  }
+
+  // event callback to when a song is clicked
+  // title: the title property of the song clicked
+  self.onClick = function(title) {
+    self.toggleSong(title);
+  };
+
+});

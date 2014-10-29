@@ -26,10 +26,11 @@
       <div class="header">
         <h3 class="text-muted">sounds</h3>
       </div>
-      <div ng-repeat="song in ctrl.songs">
-        <button ng-class="song.status? 'btn-success': 'btn-danger'" class="btn" ng-click="ctrl.onClick(song.name)">{{song.title}}</button>
+      <div ng-repeat="song in ctrl.available">
+        <!-- <button ng-class="song.status ? 'btn-success': 'btn-danger'" class="btn" ng-click="ctrl.onClick(song.name)">{{song.title}}</button> -->
+        <button ng-class="{'btn-success': song.status == false, 'btn-danger': song.status == true}" class="btn" ng-click="ctrl.onClick(song.name)">{{song.title}}</button>
       </div>
-      <a href="#" class="btn" ng-click="ctrl.playToggle()">toggle {{ctrl.status}}</a>
+      <a href="#" class="btn" ng-click="ctrl.playToggle()">toggle {{ctrl.globalSound}}</a>
 
       <ul>
         <li ng-repeat="item in ctrl.playlist">{{item}}</li>
@@ -57,6 +58,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/services/playing.js"></script>
         <!-- endbuild -->
 </body>
 </html>
