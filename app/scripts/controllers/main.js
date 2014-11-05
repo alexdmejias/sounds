@@ -21,85 +21,70 @@ angular.module('soundsApp')
   var self = this;
 
   // boolean, whether there the sound is currently on
-  self.globalSound = false;
+  self.globalSound = true;
 
   self.playing = [];
 
-  self.available = {
-    rain: {
+  self.available = [
+    {
+      name: 'rain',
       title: 'Rain',
       url: 'rain.mp3',
-      used: false,
-      playing: false
-    },
-    birds: {
+    }, {
+      name: 'birds',
       title: 'Birds',
       url: 'test.mp3',
-      used: false,
-      playing: false
     }
-  };
+  ];
 
   self.toggleGlobalSound = function() {
-    // get all the songs that are currently playing
-    self.playing = $filter('filter')(self.available, function(a) {
-      a.playing
-    }, true);
-    console.log($filter('filter')(self.available, function(song) {
-      return song.playing === true;
-    }, true));
-    console.info('wasd')
-
-    self.paused = [];
-    angular.forEach(self.playing, function(value, key) {
-    });
-
-    if (self.globalSound === false) {
-      for (sound in self.available) {
-        if (self.available[sound].playing) {
-          self.songPause(sound);
-        }
-      }
+    self.currentlyPlaying = $filter('filter')(self.available, {playing: true}, true);
+    if (self.globalSound === true) {
+      angular.forEach(self.currentlyPlaying, function(value) {
+        value.audio.pause();
+      });
     } else {
-      for (sound in self.available) {
-        if (self.available[sound].playing) {
-          self.songPlay(sound);
-        }
-      }
+      angular.forEach(self.currentlyPlaying, function(value) {
+        value.audio.play();
+      });
     }
+    // toggle global sound
     self.globalSound = !self.globalSound;
   }
 
   // toggles the used of a song. Creates it if necessary
   self.toggleSong = function(name) {
-    if (typeof(self.available[name]['song']) == 'undefined') {
-      self.songAdd(name);
+    var song = $filter('filter')(self.available, {name:name}, true)[0];
+    if (typeof(song.audio) == 'undefined') {
+      self.songAdd(song);
     } else {
-      if (self.available[name].playing) {
-        self.songPause(name);
+      if (song.playing === true) {
+        self.songPause(song);
       } else {
-        self.songPlay(name);
+        self.songPlay(song);
       }
     }
   }
 
   // adds a song to the self.playing model
-  self.songAdd = function(name) {
-    self.available[name].song = newSong(soundsBase + self.available[name].url);
-    self.available[name].used = true;
-    self.songPlay(name);
+  self.songAdd = function(song) {
+    song.audio = newSong(soundsBase + song.url);
+    song.ready = true;
+    self.songPlay(song);
   }
 
-  self.songPlay = function(name) {
-    self.available[name].playing = true;
-    self.available[name].song.play();
+  self.songPlay = function(song) {
+    song.playing = true;
+    // only start playing if global sound is on
+    if (self.globalSound === true) {
+      song.audio.play();
+    }
   }
 
   // removes a song from the self.playing model
-  self.songPause = function(name) {
-    self.available[name].playing = false;
-    self.available[name].song.pause();
-    // self.available[name].used = !self.available[name].used;
+  self.songPause = function(song) {
+    song.playing = false;
+    song.audio.pause();
   }
 
   // toggles play/pause of the application

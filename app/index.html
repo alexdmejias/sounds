@@ -26,17 +26,20 @@
       <div class="header">
         <h3 class="text-muted">sounds</h3>
       </div>
-      <div ng-repeat="(song, songData) in ctrl.available">
+      <div ng-repeat="song in ctrl.available">
         <button 
           class="btn"
-          ng-class="{'btn-success': songData.playing == true, 'btn-danger': songData.playing == false}"
-          ng-click="ctrl.toggleSong(song)">
-          {{songData.title}}
+          ng-class="song.playing === true ? 'btn-success' : 'btn-danger'"
+          ng-click="ctrl.toggleSong(song.name)">
+          {{song.title}}
         </button>
-        <input type="range" ng-model="songData.volume" max="1" step="0.1">
-        <p>{{songData.volume}}</p>
+        <input type="range" ng-model="song.volume" max="1" step="0.1">
+        <p>{{song.volume}}</p>
       </div>
-      <a href="#" class="btn" ng-click="ctrl.playToggle()" ng-model="ctrl.globalSound">{{'mute' || 'play'}}</a>
+      <a href="#" class="btn" 
+        ng-click="ctrl.playToggle()"
+        ng-model="ctrl.globalSound"
+        ng-bind="(ctrl.globalSound ? 'mute': 'play') + ' all'"></a>
 
       <ul>
         <li ng-repeat="item in ctrl.playlist">{{item}}</li>
