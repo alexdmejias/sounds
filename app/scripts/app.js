@@ -10,7 +10,6 @@
  */
 angular
   .module('soundsApp', [
-  	'ui.slider',
     'ngAnimate',
     'ngCookies'
   ]);
