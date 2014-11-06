@@ -17,7 +17,7 @@
 angular.module('soundsApp')
   .constant('soundsBase', '/sounds/')
   .service('newSong', [newSong])
-  .controller('MainCtrl', function ($filter, soundsBase) {
+  .controller('MainCtrl', function ($filter, $localStorage, soundsBase) {
   var self = this;
 
   // boolean, whether there the sound is currently on

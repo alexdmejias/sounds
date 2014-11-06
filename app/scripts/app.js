@@ -10,6 +10,5 @@
  */
 angular
   .module('soundsApp', [
-    'ngAnimate',
-    'ngCookies'
+  	'ngStorage'
   ]);
