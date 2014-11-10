@@ -18,25 +18,25 @@ angular.module('soundsApp')
   .constant('soundsBase', '/sounds/')
   .service('newSong', [newSong])
   .controller('MainCtrl', function ($scope, $filter, $localStorage, soundsBase) {
-    // var $scope = this;
+    var self = this;
 
     // boolean, whether there the sound is currently on
-    $scope.globalSound = true;
+    self.globalSound = true;
 
-    $scope.playing = [];
+    self.playing = [];
 
-    $scope.playlists = [
+    self.playlists = [
       {
         name: 'one',
         songs: ['rain', 'birds']
       }
     ];
 
-    $scope.startPlaylist = function(songs) {
-      // var songsInPlaylist = $filter($scope.available, )
+    self.startPlaylist = function(songs) {
+      // var songsInPlaylist = $filter(self.available, )
     };
 
-    $scope.available = [
+    self.available = [
       {
         name: 'rain',
         title: 'Rain',
@@ -48,64 +48,62 @@ angular.module('soundsApp')
       }
     ];
 
-    $scope.setVolume = function(name) {
+    self.setVolume = function(name) {
       name.audio.volume = name.volume;
-    }
+    };
 
-    $scope.toggleGlobalSound = function() {
-      $scope.currentlyPlaying = $filter('filter')($scope.available, {playing: true}, true);
-      if ($scope.globalSound === true) {
-        angular.forEach($scope.currentlyPlaying, function(value) {
+    self.toggleGlobalSound = function() {
+      self.currentlyPlaying = $filter('filter')(self.available, {playing: true}, true);
+      if (self.globalSound === true) {
+        angular.forEach(self.currentlyPlaying, function(value) {
           value.audio.pause();
         });
       } else {
-        angular.forEach($scope.currentlyPlaying, function(value) {
+        angular.forEach(self.currentlyPlaying, function(value) {
           value.audio.play();
         });
       }
       // toggle global sound
-      $scope.globalSound = !$scope.globalSound;
-    }
+      self.globalSound = !self.globalSound;
+    };
 
     // toggles the used of a song. Creates it if necessary
-    $scope.toggleSong = function(name) {
-      var song = $filter('filter')($scope.available, {name:name}, true)[0];
+    self.toggleSong = function(name) {
+      var song = $filter('filter')(self.available, {name:name}, true)[0];
       if (typeof(song.audio) == 'undefined') {
-        $scope.songAdd(song);
+        self.songAdd(song);
       } else {
         if (song.playing === true) {
-          $scope.songPause(song);
+          self.songPause(song);
         } else {
-          $scope.songPlay(song);
+          self.songPlay(song);
         }
       }
-    }
+    };
 
-    // adds a song to the $scope.playing model
-    $scope.songAdd = function(song) {
+    // adds a song to the self.playing model
+    self.songAdd = function(song) {
       song.audio = newSong(soundsBase + song.url);
       song.ready = true;
-      $scope.songPlay(song);
-      console.log('wasd');
-    }
+      self.songPlay(song);
+    };
 
-    $scope.songPlay = function(song) {
+    self.songPlay = function(song) {
       song.playing = true;
       // only start playing if global sound is on
-      if ($scope.globalSound === true) {
+      if (self.globalSound === true) {
         song.audio.play();
       }
-    }
+    };
 
-    // removes a song from the $scope.playing model
-    $scope.songPause = function(song) {
+    // removes a song from the self.playing model
+    self.songPause = function(song) {
       song.playing = false;
       song.audio.pause();
-    }
+    };
 
     // toggles play/pause of the application
-    $scope.playToggle = function() {
-      $scope.toggleGlobalSound();
-    }
-
+    self.playToggle = function() {
+      self.toggleGlobalSound();
+    };
 });

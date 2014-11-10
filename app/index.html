@@ -21,35 +21,31 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="container" ng-controller="MainCtrl">
+    <div class="container" ng-controller="MainCtrl as ctrl">
       <div class="header">
         <h3 class="text-muted">sounds</h3>
       </div>
-      <div ng-repeat="song in available">
+      <div ng-repeat="song in ctrl.available">
         <button
           class="btn"
           ng-class="song.playing === true ? 'btn-success' : 'btn-danger'"
-          ng-click="toggleSong(song.name)">
+          ng-click="ctrl.toggleSong(song.name)">
           {{song.title}}
-
         </button>
-
         <input
           type="range"
           max="1"
           step="0.1"
-          ng-disabled="!song.audio"
           ng-model="song.volume"
-          ng-change="setVolume(song)">
-          {{song.volume}}
-
+          ng-hide="!song.audio"
+          ng-change="ctrl.setVolume(song)">
       </div>
       <a href="#" class="btn"
-        ng-click="playToggle()"
-        ng-model="globalSound"
-        ng-bind="(globalSound ? 'mute': 'play') + ' all'"></a>
+        ng-click="ctrl.playToggle()"
+        ng-model="ctrl.globalSound"
+        ng-bind="(ctrl.globalSound ? 'mute': 'play') + ' all'"></a>
 
-      <button ng-repeat="playlist in MainCtrl.playlists" ng-click="MainCtrl.startPlaylist(playlist.songs)">{{playlist.name}}</button>
+      <button ng-repeat="playlist in ctrl.playlists" ng-click="ctrl.startPlaylist(playlist.songs)">{{playlist.name}}</button>
     </div>
 
 
