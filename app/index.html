@@ -41,7 +41,7 @@
           ng-change="ctrl.setVolume(song)">
       </div>
       <a href="#" class="btn"
-        ng-click="ctrl.playToggle()"
+        ng-click="ctrl.toggleGlobalSound()"
         ng-model="ctrl.globalSound"
         ng-bind="(ctrl.globalSound ? 'mute': 'play') + ' all'"></a>
 
