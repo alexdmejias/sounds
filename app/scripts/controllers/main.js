@@ -20,21 +20,25 @@ angular.module('soundsApp')
   .controller('MainCtrl', function ($scope, $filter, $localStorage, soundsBase) {
     var self = this;
 
+    self.$storage = $localStorage;
+
+    self.editMode = false;
     // boolean, whether there the sound is currently on
     self.globalSound = true;
 
     self.playing = [];
 
-    self.playlists = [
+    self.playlists = self.$storage.playlists || [];
+    self.samplePlaylists = [
       {
         name: 'one',
         songs: ['rain', 'birds']
+      },
+      {
+        name: 'rain only',
+        songs: ['rain']
       }
     ];
-
-    self.startPlaylist = function(songs) {
-      // var songsInPlaylist = $filter(self.available, )
-    };
 
     self.available = [
       {
@@ -49,6 +53,53 @@ angular.module('soundsApp')
     ];
 
     /**
+     * Find a song object given the song name
+     * @param {string} name Name of a song
+     */
+    _findByName = function(name) {
+      return $filter('filter')(self.available, {name:name});
+    }
+
+    self.copySampleLists = function() {
+      console.log(self.samplePlaylists, self.playlists);
+      angular.copy(self.samplePlaylists, self.playlists);
+      console.log(self.samplePlaylists, self.playlists);
+      self.$storage
+    }
+
+    self.toggleEditMode = function() {
+      self.editMode = !self.editMode;
+    };
+
+    self.playlistDelete = function(playlistName) {
+      console.log(self.$storage, '<<<<', self.playlists);
+      var playlistLen = self.playlists.length;
+      for (var i = 0; i < playlistLen - 1 ; i++) {
+        console.log(i);
+        if (self.playlists[i].name == playlistName) {
+          self.playlists.splice(i, 1);
+          break;
+        }
+      }
+      self.$storage.playlists = self.playlists;
+      console.log(self.$storage, '<<<<', self.playlists);
+      // save to local storage
+    };
+
+    /**
+     * Cycle through the songs in a playlist and play them
+     * @param {array} songs Array of song names to play
+     */
+    self.startPlaylist = function(songs) {
+      angular.forEach(self.available, function(song) {
+        self.songPause(song);
+      });
+      angular.forEach(songs, function(song) {
+        var songObj = _findByName(song);
+        self.songAdd(songObj[0]);
+      });
+    };
+
     /**
      * Set the volume of a song to its own volume property
      * @param {object} song Song object from array of songs
