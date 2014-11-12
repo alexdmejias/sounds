@@ -48,10 +48,18 @@ angular.module('soundsApp')
       }
     ];
 
-    self.setVolume = function(name) {
-      name.audio.volume = name.volume;
+    /**
+    /**
+     * Set the volume of a song to its own volume property
+     * @param {object} song Song object from array of songs
+     */
+    self.setVolume = function(songObj) {
+      songObj.audio.volume = songObj.volume;
     };
 
+    /**
+     * Toggles all of the currently playing songs in the application
+     */
     self.toggleGlobalSound = function() {
       self.currentlyPlaying = $filter('filter')(self.available, {playing: true}, true);
       if (self.globalSound === true) {
@@ -67,7 +75,10 @@ angular.module('soundsApp')
       self.globalSound = !self.globalSound;
     };
 
-    // toggles the used of a song. Creates it if necessary
+    /**
+     * Plays or pauses a song. Creates the songs Audio element if necessary
+     * @param {string} Name of the song to toggle, from array of songs
+     */
     self.toggleSong = function(name) {
       var song = $filter('filter')(self.available, {name:name}, true)[0];
       if (typeof(song.audio) == 'undefined') {
@@ -81,29 +92,38 @@ angular.module('soundsApp')
       }
     };
 
-    // adds a song to the self.playing model
-    self.songAdd = function(song) {
-      song.audio = newSong(soundsBase + song.url);
-      song.ready = true;
-      self.songPlay(song);
+    /**
+     * Creates the Audio object for a song and then plays it
+     * @param {object} songObj Song object for which to create the Audio element
+     */
+    self.songAdd = function(songObj) {
+      songObj.audio = newSong(soundsBase + songObj.url);
+      songObj.ready = true;
+      self.songPlay(songObj);
     };
 
-    self.songPlay = function(song) {
-      song.playing = true;
+
+    /**
+     * Play a song
+     * @param {object} song Song object from list of songs
+     */
+    self.songPlay = function(songObj) {
+      songObj.playing = true;
       // only start playing if global sound is on
       if (self.globalSound === true) {
-        song.audio.play();
+        songObj.audio.play();
       }
     };
 
-    // removes a song from the self.playing model
-    self.songPause = function(song) {
-      song.playing = false;
-      song.audio.pause();
+    /**
+     * Pause a song
+     * @param {object} song Song object from list of songs
+     */
+    self.songPause = function(songObj) {
+      songObj.playing = false;
+      if (songObj.ready) {
+        songObj.audio.pause();
+      }
     };
 
-    // toggles play/pause of the application
-    self.playToggle = function() {
-      self.toggleGlobalSound();
-    };
 });
