@@ -58,32 +58,44 @@ angular.module('soundsApp')
      */
     _findByName = function(name) {
       return $filter('filter')(self.available, {name:name});
-    }
-
-    self.copySampleLists = function() {
-      console.log(self.samplePlaylists, self.playlists);
-      angular.copy(self.samplePlaylists, self.playlists);
-      console.log(self.samplePlaylists, self.playlists);
-      self.$storage
-    }
-
-    self.toggleEditMode = function() {
-      self.editMode = !self.editMode;
     };
 
-    self.playlistDelete = function(playlistName) {
-      console.log(self.$storage, '<<<<', self.playlists);
-      var playlistLen = self.playlists.length;
-      for (var i = 0; i < playlistLen - 1 ; i++) {
-        console.log(i);
+    /**
+     * finds the index number of a playlist
+     * @param {string} playlistName Name of the desired playlist
+     */
+    _findPlaylistByName = function(playlistName) {
+      var playlistsLen = self.playlists.length;
+      for (var i = 0; i < playlistsLen - 1 ; i++) {
         if (self.playlists[i].name == playlistName) {
-          self.playlists.splice(i, 1);
           break;
         }
       }
+      return i;
+    };
+
+    /**
+     * Add a sample set of playlists
+     */
+    self.copySampleLists = function() {
+      angular.copy(self.samplePlaylists, self.playlists);
+    }
+
+    /**
+     * Toggles the edit mode for the playlists
+     */
+    self.playlistToggleEditMode = function() {
+      self.editMode = !self.editMode;
+    };
+
+    /**
+     * delete a playlist and save it to localStorage
+     * @param {string} playlistName [description]
+     */
+    self.playlistDelete = function(playlistName) {
+      var playlistIndex = _findPlaylistByName(playlistName);
+      self.playlists.splice(playlistIndex, 1);
       self.$storage.playlists = self.playlists;
-      console.log(self.$storage, '<<<<', self.playlists);
-      // save to local storage
     };
 
     /**
