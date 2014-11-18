@@ -107,6 +107,32 @@ angular.module('soundsApp')
     self.playlistDelete = function(playlistName) {
       var playlistIndex = _findPlaylistByName(playlistName);
       self.playlists.splice(playlistIndex, 1);
+      _savePlaylists();
+    };
+
+    /**
+     * Edit the current playlist to the currently selected songs
+     * @param {string} playlistName Name of the playlist
+     */
+    self.playlistEdit = function(playlistName) {
+      var playlistIndex = _findPlaylistByName(playlistName);
+      console.log(playlistIndex);
+
+      self.playlists[playlistIndex].songs = [];
+
+      angular.forEach(self.available, function(sound) {
+        if(sound.playing == true) {
+          self.playlists[playlistIndex].songs.push(sound.name);
+        }
+      });
+      _savePlaylists();
+    };
+
+    /**
+     * Save current playlists and their content to localstorage
+     */
+    _savePlaylists = function() {
+      console.log('saved playlist');
       self.$storage.playlists = self.playlists;
     };
 
