@@ -49,6 +49,18 @@ angular.module('soundsApp')
         name: 'birds',
         title: 'Birds',
         url: 'test.mp3',
+      }, {
+        name: 'other1',
+        title: 'Other 1',
+        url: 'test.mp3'
+      }, {
+        name: 'other2',
+        title: 'Other 2',
+        url: 'test.mp3'
+      }, {
+        name: 'other3',
+        title: 'Other 3',
+        url: 'test.mp3'
       }
     ];
 
