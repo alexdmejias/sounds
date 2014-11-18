@@ -59,7 +59,11 @@
         copy samples
       </button>
 
-      <h3 ng-repeat-start="list in ctrl.playlists" ng-click="ctrl.startPlaylist(list.songs)">{{list.name}}</h3>
+      <h3
+        ng-repeat-start="list in ctrl.playlists"
+        ng-click="ctrl.startPlaylist(list.songs)"
+        ng-bind="list.name">
+      </h3>
       <ul>
         <li ng-repeat="song in list.songs">{{song}}</li>
       </ul>
@@ -69,7 +73,13 @@
         ng-click="ctrl.playlistDelete(list.name)"
         ng-bind="'delete ' + list.name + '?'">
       </button>
-      <button class="btn" ng-repeat-end ng-hide="!ctrl.editMode" ng-click="ctrl.playlistEdit(list.name)"> edit </button>
+      <button
+        ng-repeat-end
+        class="btn"
+        ng-hide="!ctrl.editMode"
+        ng-click="ctrl.playlistEdit(list.name)">
+        edit
+      </button>
     </div>
 
 
