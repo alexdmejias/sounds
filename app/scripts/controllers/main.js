@@ -101,13 +101,6 @@ angular.module('soundsApp')
     };
 
     /**
-     * creates new playlists with the currently playing songs
-     */
-    self.createPlaylist = function() {
-
-    };
-
-    /**
      * delete a playlist and save it to localStorage
      * @param {string} playlistName [description]
      */
