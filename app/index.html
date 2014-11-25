@@ -54,6 +54,10 @@
       </button>
 
       <button
+        ng-click="ctrl.createPlaylist()">
+        new playlist
+      </button>
+      <button
         class="btn"
         ng-click="ctrl.copySampleLists()">
         copy samples
@@ -62,8 +66,12 @@
       <h3
         ng-repeat-start="list in ctrl.playlists"
         ng-click="ctrl.startPlaylist(list.songs)"
+        ng-hide="ctrl.editMode"
         ng-bind="list.name">
       </h3>
+      <input type="text"
+        ng-model="list.name"
+        ng-show="ctrl.editMode" />
       <ul>
         <li ng-repeat="song in list.songs">{{song}}</li>
       </ul>
