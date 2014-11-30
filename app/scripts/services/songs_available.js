@@ -8,12 +8,12 @@
  * Factory in the soundsApp.
  */
 angular.module('soundsApp')
-  .factory('songsAvailable', function ($http, $q) {
+  .factory('songsAvailable', function ($http, $q, dataPath) {
     var service = {};
 
     service.getSongs = function() {
       var deferred = $q.defer();
-      $http.get('http://localhost:9000/data.json')
+      $http.get(dataPath)
         .success(function(data) {
           deferred.resolve(data);
         });
