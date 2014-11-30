@@ -23,7 +23,7 @@ angular.module('soundsApp')
 
         /**
          * creates a new song object
-         * @param  {string} The name of the song object to create.
+         * @param  {string} The name of the song object to create. 
          *  Which corresponds with the name in the data file.
          * @return {Object}
          */
@@ -81,6 +81,14 @@ angular.module('soundsApp')
           if (songObj.ready) {
             songObj.audio.pause();
           }
+        };
+
+        /**
+         * Set the volume of a song to its own volume property
+         * @param {object} song Song object from array of songs
+         */
+        $scope.setVolume = function(songObj) {
+          songObj.audio.volume = songObj.volume;
         };
       } // end of link function
     };

@@ -131,14 +131,6 @@ angular.module('soundsApp')
     };
 
     /**
-     * Set the volume of a song to its own volume property
-     * @param {object} song Song object from array of songs
-     */
-    self.setVolume = function(songObj) {
-      songObj.audio.volume = songObj.volume;
-    };
-
-    /**
      * Toggles all of the currently playing songs in the application
      */
     self.toggleGlobalSound = function() {
@@ -155,9 +147,5 @@ angular.module('soundsApp')
       // toggle global sound
       self.globalSound = !self.globalSound;
     };
-
-
-
-
 
 });
