@@ -16,7 +16,7 @@
 
 angular.module('soundsApp')
   .service('newSong', [newSong])
-  .controller('MainCtrl', function ($scope, $filter, $localStorage, soundsDir, songsAvailable) {
+  .controller('MainCtrl', function ($scope, $filter, $localStorage, songsAvailable) {
     var self = this;
     
     songsAvailable.getSongs()
@@ -156,55 +156,8 @@ angular.module('soundsApp')
       self.globalSound = !self.globalSound;
     };
 
-    /**
-     * Plays or pauses a song. Creates the songs Audio element if necessary
-     * @param {string} Name of the song to toggle, from array of songs
-     */
-    self.toggleSong = function(name) {
-      var song = $filter('filter')(self.available, {name:name}, true)[0];
-      if (typeof(song.audio) == 'undefined') {
-        self.songAdd(song);
-      } else {
-        if (song.playing === true) {
-          self.songPause(song);
-        } else {
-          self.songPlay(song);
-        }
-      }
-    };
-
-    /**
-     * Creates the Audio object for a song and then plays it
-     * @param {object} songObj Song object for which to create the Audio element
-     */
-    self.songAdd = function(songObj) {
-      songObj.audio = newSong(soundsDir + songObj.url);
-      songObj.ready = true;
-      self.songPlay(songObj);
-    };
 
 
-    /**
-     * Play a song
-     * @param {object} song Song object from list of songs
-     */
-    self.songPlay = function(songObj) {
-      songObj.playing = true;
-      // only start playing if global sound is on
-      if (self.globalSound === true) {
-        songObj.audio.play();
-      }
-    };
 
-    /**
-     * Pause a song
-     * @param {object} song Song object from list of songs
-     */
-    self.songPause = function(songObj) {
-      songObj.playing = false;
-      if (songObj.ready) {
-        songObj.audio.pause();
-      }
-    };
 
 });
