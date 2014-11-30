@@ -17,13 +17,18 @@
 angular.module('soundsApp')
   .constant('soundsBase', '/sounds/')
   .service('newSong', [newSong])
-  .controller('MainCtrl', function ($scope, $filter, $localStorage, soundsBase) {
+  .controller('MainCtrl', function ($scope, $filter, $localStorage, soundsBase, songsAvailable) {
     var self = this;
+    
+    songsAvailable.getSongs()
+      .then(function(data) {
+        console.log(data);
+        self.available = data;
+      });
 
     self.$storage = $localStorage;
 
     self.editMode = false;
-    // boolean, whether there the sound is currently on
     self.globalSound = true;
 
     self.playing = [];
@@ -37,30 +42,6 @@ angular.module('soundsApp')
       {
         name: 'rain only',
         songs: ['rain']
-      }
-    ];
-
-    self.available = [
-      {
-        name: 'rain',
-        title: 'Rain',
-        url: 'rain.mp3',
-      }, {
-        name: 'birds',
-        title: 'Birds',
-        url: 'test.mp3',
-      }, {
-        name: 'other1',
-        title: 'Other 1',
-        url: 'test.mp3'
-      }, {
-        name: 'other2',
-        title: 'Other 2',
-        url: 'test.mp3'
-      }, {
-        name: 'other3',
-        title: 'Other 3',
-        url: 'test.mp3'
       }
     ];
 
