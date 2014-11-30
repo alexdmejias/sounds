@@ -15,9 +15,8 @@
  }
 
 angular.module('soundsApp')
-  .constant('soundsBase', '/sounds/')
   .service('newSong', [newSong])
-  .controller('MainCtrl', function ($scope, $filter, $localStorage, soundsBase, songsAvailable) {
+  .controller('MainCtrl', function ($scope, $filter, $localStorage, soundsDir, songsAvailable) {
     var self = this;
     
     songsAvailable.getSongs()
@@ -179,7 +178,7 @@ angular.module('soundsApp')
      * @param {object} songObj Song object for which to create the Audio element
      */
     self.songAdd = function(songObj) {
-      songObj.audio = newSong(soundsBase + songObj.url);
+      songObj.audio = newSong(soundsDir + songObj.url);
       songObj.ready = true;
       self.songPlay(songObj);
     };
