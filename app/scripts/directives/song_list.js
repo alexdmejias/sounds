@@ -11,11 +11,8 @@ angular.module('soundsApp')
     return {
       templateUrl: 'views/song_list.html',
       restrict: 'A',
-      scope: {
-        globalSound: '='
-      },
-      link: function($scope, $element, $attrs) {
-
+      scope: {},
+      controller: function($scope) {
         $scope.songsAvailable = '';
         $scope.globalSound = true;
 
@@ -23,7 +20,6 @@ angular.module('soundsApp')
           .then(function(data) {
             $scope.songsAvailable = data;
           });
-
         /**
          * creates a new song object
          * @param  {string} The name of the song object to create. 
@@ -34,23 +30,10 @@ angular.module('soundsApp')
           var song = new Audio(songName);
           song.loop = true;
           return song;
-        }
+        };
 
-        /**
-         * Plays or pauses a song. Creates the songs Audio element if necessary
-         * @param {string} Name of the song to toggle, from array of songs
-         */
-        $scope.toggleSong = function(name) {
-          var song = $filter('filter')($scope.songsAvailable, {name:name}, true)[0];
-          if (typeof(song.audio) == 'undefined') {
-            $scope.songAdd(song);
-          } else {
-            if (song.playing === true) {
-              $scope.songPause(song);
-            } else {
-              $scope.songPlay(song);
-            }
-          }
+        $scope.getCurrentlyPlaying = function() {
+          return $filter('filter')($scope.songsAvailable, {playing: true}, true);
         };
 
         /**
@@ -85,6 +68,25 @@ angular.module('soundsApp')
             songObj.audio.pause();
           }
         };
+      },
+
+      link: function($scope, $element, $attrs) {
+        /**
+         * Plays or pauses a song. Creates the songs Audio element if necessary
+         * @param {string} Name of the song to toggle, from array of songs
+         */
+        $scope.toggleSong = function(name) {
+          var song = $filter('filter')($scope.songsAvailable, {name:name}, true)[0];
+          if (typeof(song.audio) === 'undefined') {
+            $scope.songAdd(song);
+          } else {
+            if (song.playing === true) {
+              $scope.songPause(song);
+            } else {
+              $scope.songPlay(song);
+            }
+          }
+        };
 
         /**
          * Set the volume of a song to its own volume property
@@ -98,7 +100,7 @@ angular.module('soundsApp')
          * Toggles all of the currently playing songs in the application
          */
         $scope.toggleGlobalSound = function() {
-          $scope.currentlyPlaying = $filter('filter')($scope.songsAvailable, {playing: true}, true);
+          $scope.currentlyPlaying = $scope.getCurrentlyPlaying();
           if ($scope.globalSound === true) {
             angular.forEach($scope.currentlyPlaying, function(value) {
               value.audio.pause();
