@@ -28,45 +28,7 @@
       
       <div song-list global-sound="ctrl.globalSound"></div>
 
-      <h2>playlists</h2>
-      <button
-        class="btn"
-        ng-class="{'btn-danger': !ctrl.editMode, 'btn-success': ctrl.editMode}"
-        ng-click="ctrl.playlistToggleEditMode()" >
-        Edit Mode
-      </button>
-
-      <button
-        class="btn"
-        ng-click="ctrl.copySampleLists()">
-        copy samples
-      </button>
-
-      <h3
-        ng-repeat-start="list in ctrl.playlists"
-        ng-click="ctrl.startPlaylist(list.songs)"
-        ng-hide="ctrl.editMode"
-        ng-bind="list.name">
-      </h3>
-      <input type="text"
-        ng-model="list.name"
-        ng-show="ctrl.editMode" />
-      <ul>
-        <li ng-repeat="song in list.songs">{{song}}</li>
-      </ul>
-      <button
-        class="btn btn-danger"
-        ng-hide="!ctrl.editMode"
-        ng-click="ctrl.playlistDelete(list.name)"
-        ng-bind="'delete ' + list.name + '?'">
-      </button>
-      <button
-        ng-repeat-end
-        class="btn"
-        ng-hide="!ctrl.editMode"
-        ng-click="ctrl.playlistEdit(list.name)">
-        edit
-      </button>
+      <div playlists-list></div>
     </div>
 
 
@@ -88,6 +50,7 @@
         <script src="scripts/services/songs_available.js"></script>
         <script src="scripts/services/sounds_dir_const.js"></script>
         <script src="scripts/services/data_path_const.js"></script>
+        <script src="scripts/directives/playlists_list.js"></script>
         <!-- endbuild -->
 </body>
 </html>
