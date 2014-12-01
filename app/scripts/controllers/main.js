@@ -130,22 +130,4 @@ angular.module('soundsApp')
       });
     };
 
-    /**
-     * Toggles all of the currently playing songs in the application
-     */
-    self.toggleGlobalSound = function() {
-      self.currentlyPlaying = $filter('filter')(self.available, {playing: true}, true);
-      if (self.globalSound === true) {
-        angular.forEach(self.currentlyPlaying, function(value) {
-          value.audio.pause();
-        });
-      } else {
-        angular.forEach(self.currentlyPlaying, function(value) {
-          value.audio.play();
-        });
-      }
-      // toggle global sound
-      self.globalSound = !self.globalSound;
-    };
-
 });

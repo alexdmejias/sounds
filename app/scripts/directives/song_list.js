@@ -16,6 +16,9 @@ angular.module('soundsApp')
       },
       link: function($scope, $element, $attrs) {
 
+        $scope.songsAvailable = '';
+        $scope.globalSound = true;
+
         songsAvailable.getSongs()
           .then(function(data) {
             $scope.songsAvailable = data;
@@ -90,6 +93,25 @@ angular.module('soundsApp')
         $scope.setVolume = function(songObj) {
           songObj.audio.volume = songObj.volume;
         };
+
+        /**
+         * Toggles all of the currently playing songs in the application
+         */
+        $scope.toggleGlobalSound = function() {
+          $scope.currentlyPlaying = $filter('filter')($scope.songsAvailable, {playing: true}, true);
+          if ($scope.globalSound === true) {
+            angular.forEach($scope.currentlyPlaying, function(value) {
+              value.audio.pause();
+            });
+          } else {
+            angular.forEach($scope.currentlyPlaying, function(value) {
+              value.audio.play();
+            });
+          }
+          // toggle global sound
+          $scope.globalSound = !$scope.globalSound;
+        };
+
       } // end of link function
     };
 });
