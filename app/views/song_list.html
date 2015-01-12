@@ -1,0 +1,19 @@
+<div ng-repeat="song in songsAvailable">
+  <button
+    class="btn"
+    ng-class="song.playing === true ? 'btn-success' : 'btn-danger'"
+    ng-click="toggleSong(song.name)"
+    ng-bind="song.title">
+  </button>
+  <input
+    type="range"
+    max="1"
+    step="0.1"
+    ng-model="song.volume"
+    ng-hide="!song.audio || !song.playing"
+    ng-change="setVolume(song)">
+</div>
+<a href="#" class="btn"
+  ng-click="toggleGlobalSound()"
+  ng-model="globalSound"
+  ng-bind="(globalSound ? 'mute': 'play') + ' all'"></a>

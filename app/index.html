@@ -25,65 +25,10 @@
       <div class="header">
         <h3 class="text-muted">sounds</h3>
       </div>
-      <div ng-repeat="song in ctrl.available">
-        <button
-          class="btn"
-          ng-class="song.playing === true ? 'btn-success' : 'btn-danger'"
-          ng-click="ctrl.toggleSong(song.name)"
-          ng-bind="song.title">
-        </button>
-        <input
-          type="range"
-          max="1"
-          step="0.1"
-          ng-model="song.volume"
-          ng-hide="!song.audio || !song.playing"
-          ng-change="ctrl.setVolume(song)">
-      </div>
-      <a href="#" class="btn"
-        ng-click="ctrl.toggleGlobalSound()"
-        ng-model="ctrl.globalSound"
-        ng-bind="(ctrl.globalSound ? 'mute': 'play') + ' all'"></a>
+      
+      <div song-list></div>
 
-      <h2>playlists</h2>
-      <button
-        class="btn"
-        ng-class="{'btn-danger': !ctrl.editMode, 'btn-success': ctrl.editMode}"
-        ng-click="ctrl.playlistToggleEditMode()" >
-        Edit Mode
-      </button>
-
-      <button
-        class="btn"
-        ng-click="ctrl.copySampleLists()">
-        copy samples
-      </button>
-
-      <h3
-        ng-repeat-start="list in ctrl.playlists"
-        ng-click="ctrl.startPlaylist(list.songs)"
-        ng-hide="ctrl.editMode"
-        ng-bind="list.name">
-      </h3>
-      <input type="text"
-        ng-model="list.name"
-        ng-show="ctrl.editMode" />
-      <ul>
-        <li ng-repeat="song in list.songs">{{song}}</li>
-      </ul>
-      <button
-        class="btn btn-danger"
-        ng-hide="!ctrl.editMode"
-        ng-click="ctrl.playlistDelete(list.name)"
-        ng-bind="'delete ' + list.name + '?'">
-      </button>
-      <button
-        ng-repeat-end
-        class="btn"
-        ng-hide="!ctrl.editMode"
-        ng-click="ctrl.playlistEdit(list.name)">
-        edit
-      </button>
+      <div playlists-list edit-mode="ctrl.editMode"></div>
     </div>
 
 
@@ -101,6 +46,12 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/directives/song_list.js"></script>
+        <script src="scripts/services/songs_available.js"></script>
+        <script src="scripts/services/sounds_dir_const.js"></script>
+        <script src="scripts/services/data_path_const.js"></script>
+        <script src="scripts/directives/playlists_list.js"></script>
+        <script src="scripts/services/currently_playing.js"></script>
         <!-- endbuild -->
 </body>
 </html>
