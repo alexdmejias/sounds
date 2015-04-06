@@ -19,10 +19,13 @@ angular.module('soundsApp')
         songsAvailable.getSongs()
           .then(function(data) {
             $scope.songsAvailable = data;
+            angular.forEach($scope.songsAvailable, function(song) {
+              song.volume = 0.5;
+            })
           });
         /**
          * creates a new song object
-         * @param  {string} The name of the song object to create. 
+         * @param  {string} The name of the song object to create.
          *  Which corresponds with the name in the data file.
          * @return {Object}
          */
