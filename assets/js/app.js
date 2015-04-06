@@ -10,5 +10,10 @@
  */
 angular
   .module('soundsApp', [
-  	'ngStorage'
-  ]);
+  	'ngStorage',
+    'ngMaterial',
+    'ngAnimate'
+  ])
+  // .config( function( $mdIconProvider ){
+  //   $mdIconProvider.iconSet("avatar", 'http://s3-us-west-2.amazonaws.com/s.cdpn.io/181892/avatars.svg', 128);
+  // });`

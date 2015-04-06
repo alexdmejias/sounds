@@ -1,18 +1,25 @@
-<div ng-repeat="song in songsAvailable">
-  <button
-    class="btn"
+<div layout="column" layout-margin layout-fill layout-padding ng-repeat="song in songsAvailable">
+  <md-button
+    flex
     ng-class="song.playing === true ? 'btn-success' : 'btn-danger'"
-    ng-click="toggleSong(song.name)"
-    ng-bind="song.title">
-  </button>
-  <input
-    type="range"
-    max="1"
-    step="0.1"
-    ng-model="song.volume"
-    ng-hide="!song.audio || !song.playing"
-    ng-change="setVolume(song)">
+    class="md-raised">
+
+    <p ng-click="toggleSong(song.name)" ng-bind="song.title"></p>
+
+    <md-slider
+      flex
+      ng-model="song.volume"
+      ng-change="setVolume(song)"
+      md-discrete
+      ng-disabled="!song.audio || !song.playing"
+      step="0.1"
+      min="0"
+      max="1"
+      aria-label="rating"></md-slider>
+  </md-button>
+
 </div>
+
 <a href="#" class="btn"
   ng-click="toggleGlobalSound()"
   ng-model="globalSound"

@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link rel="stylesheet" href="lib/angular-material/angular-material.css">
   <link rel="stylesheet" href="css/main.css">
 
   <script type="text/javascript" src="lib/angular/angular.js"></script>
   <script type="text/javascript" src="lib/angular-material/angular-material.js"></script>
+  <script type="text/javascript" src="lib/angular-animate/angular-animate.js"></script>
+  <script type="text/javascript" src="lib/angular-aria/angular-aria.js"></script>
   <script type="text/javascript" src="lib/lodash/lodash.js"></script>
   <script type="text/javascript" src="lib/ngstorage/ngStorage.js"></script>
 
@@ -28,6 +31,7 @@
     <div song-list></div>
 
     <div playlists-list edit-mode="ctrl.editMode"></div>
+
   </div>
 
   <% if (env === 'development') { %>
