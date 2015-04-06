@@ -21,15 +21,7 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="container" ng-controller="MainCtrl as ctrl">
-      <div class="header">
-        <h3 class="text-muted">sounds</h3>
-      </div>
-      
-      <div song-list></div>
 
-      <div playlists-list edit-mode="ctrl.editMode"></div>
-    </div>
 
 
     <!-- build:js(.) scripts/oldieshim.js -->
