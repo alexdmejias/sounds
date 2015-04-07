@@ -6,10 +6,10 @@
 * @description
 * # songList
 */
-angular.module('soundsApp')
+angular.module('songs')
   .directive('songList', function ($filter, songsAvailable, soundsDir) {
     return {
-      templateUrl: 'views/song_list.html',
+      templateUrl: 'js/songs/song-list.tmpl.html',
       restrict: 'A',
       scope: {},
       controller: function($scope) {

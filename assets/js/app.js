@@ -14,7 +14,8 @@ angular
     'ngMaterial',
     'ngAnimate',
 
-    'playlists'
+    'playlists',
+    'songs'
   ])
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
