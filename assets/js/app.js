@@ -12,10 +12,12 @@ angular
   .module('soundsApp', [
   	'ngStorage',
     'ngMaterial',
-    'ngAnimate'
+    'ngAnimate',
+
+    'playlists'
   ])
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('blue-grey')
       .accentPalette('orange');
-  });
+  })

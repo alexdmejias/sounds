@@ -6,10 +6,10 @@
  * @description
  * # playlist
  */
-angular.module('soundsApp')
-  .directive('playlistsList', function ($filter, $localStorage) {
+angular.module('playlists')
+  .directive('playlistList', function ($filter, $localStorage) {
     return {
-    	templateUrl: 'views/playlists_list.html',
+    	templateUrl: 'js/playlists/playlist-list.tmpl.html',
       restrict: 'A',
       scope: {
         editMode: '='
