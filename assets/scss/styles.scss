@@ -1,0 +1,18 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.song-list {
+  width: 60%;
+}
+
+.song-tile {
+  opacity: 0.8;
+  background:#37474F;
+}
+
+.song-tile:hover, .song-tile.playing {
+  opacity: 1;
+}
