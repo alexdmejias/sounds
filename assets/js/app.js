@@ -21,4 +21,4 @@ angular
     $mdThemingProvider.theme('default')
       .primaryPalette('blue-grey')
       .accentPalette('orange');
-  })
+  });

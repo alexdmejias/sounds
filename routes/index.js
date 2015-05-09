@@ -3,7 +3,7 @@
  */
 
 //get correct directory path
-var filePath = __dirname.replace('routes', 'views/')
+var filePath = __dirname.replace('routes', 'views/');
 
 exports.index = function(req, res) {
 	res.render(filePath + 'index.ejs', {env: process.env.NODE_ENV || 'development'});
