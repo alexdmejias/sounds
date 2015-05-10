@@ -3,8 +3,8 @@ md-grid-tile {
 transition: all 400ms ease-out 50ms; }
 </style>
 <div layout="column" layout-margin layout-fill layout-padding >
-  <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px" >
-    <md-grid-tile style="background:#37474F" md-rowspan="2" md-colspan="2" ng-repeat="song in songsAvailable">
+  <md-grid-list class="song-list" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px" >
+    <md-grid-tile class="song-tile" ng-class="{'playing': song.playing}" md-rowspan="2" md-colspan="2" ng-repeat="song in songListCtrl.songsAvailable">
       <h3 style="width: 85%">
         <md-slider
           ng-model="song.volume"
@@ -22,26 +22,8 @@ transition: all 400ms ease-out 50ms; }
     </md-grid-tile>
   </md-grid-list>
 </div>
-  <!-- <md-button
-    flex
-    ng-class="song.playing === true ? 'btn-success' : 'btn-danger'"
-    class="md-raised">
-
-    <p ng-click="toggleSong(song.name)" ng-bind="song.title"></p>
-
-    <md-slider
-      flex
-      ng-model="song.volume"
-      ng-change="setVolume(song)"
-      md-discrete
-      ng-disabled="!song.audio || !song.playing"
-      step="0.1"
-      min="0"
-      max="1"
-      aria-label="rating"></md-slider>
-  </md-button> -->
 
 <a href="#" class="btn"
-  ng-click="toggleGlobalSound()"
-  ng-model="globalSound"
-  ng-bind="(globalSound ? 'mute': 'play') + ' all'"></a>
+  ng-click="songListCtrl.toggleGlobalSound()"
+  ng-model="songListCtrl.globalSound"
+  ng-bind="(songListCtrl.globalSound ? 'mute': 'play') + ' all'"></a>
