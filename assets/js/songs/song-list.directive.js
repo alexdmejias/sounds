@@ -64,7 +64,7 @@
 
     /**
      * Play a song
-     * @param {object} song Song object from list of songs
+     * @param {object} songObj Song object from list of songs
      */
     self.songPlay = function(songObj) {
       songObj.playing = true;
@@ -76,7 +76,7 @@
 
     /**
      * Pause a song
-     * @param {object} song Song object from list of songs
+     * @param {object} songObj Song object from list of songs
      */
     self.songPause = function(songObj) {
       songObj.playing = false;
@@ -134,7 +134,7 @@
 
     /**
      * Set the volume of a song to its own volume property
-     * @param {object} song Song object from array of songs
+     * @param {object} songObj Song object from array of songs
      */
     $scope.setVolume = function(songObj) {
       songObj.audio.volume = songObj.volume;
