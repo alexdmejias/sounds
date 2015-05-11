@@ -4,11 +4,22 @@ body {
   padding-bottom: 20px; }
 
 .song-list {
-  width: 60%; }
+  width: 60%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row; }
 
 .song-tile {
+  height: 100px;
+  width: 100px;
+  border: 1px solid #626262;
+  margin: 3px;
   opacity: 0.8;
-  background: #37474F; }
+  background: #37474F;
+  transition: all 400ms ease-out 50ms; }
+  .song-tile h3 {
+    width: 85%; }
 
 .song-tile:hover, .song-tile.playing {
   opacity: 1; }
