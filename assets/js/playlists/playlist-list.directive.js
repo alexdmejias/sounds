@@ -14,7 +14,7 @@ angular.module('playlists')
       scope: {
         editMode: '='
       },
-      link: function postLink($scope, $element, $attrs) {
+      link: function postLink($scope) {
         $scope.$storage = $localStorage;
         $scope.editMode = false;
 
