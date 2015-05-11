@@ -8,4 +8,4 @@
  * Constant in the soundsApp.
  */
 angular.module('soundsApp')
-  .constant('dataPath', 'http://localhost:8080/data.json');
+  .constant('dataPath', window.location.origin + '/data.json');
