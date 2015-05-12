@@ -11,8 +11,6 @@ body {
   flex-direction: row; }
 
 .song-tile {
-  height: 100px;
-  width: 100px;
   border: 1px solid #626262;
   margin: 3px;
   opacity: 0.8;
