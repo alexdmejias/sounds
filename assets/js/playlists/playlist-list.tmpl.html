@@ -1,12 +1,6 @@
 <h2>playlists</h2>
-<button class="btn" ng-class="{'btn-danger': !editMode, 'btn-success': editMode}" ng-click="playlistToggleEditMode()" > Edit Mode </button>
-<button class="btn" ng-click="copySampleLists()">copy samples</button>
+<md-button aria-label="create playlist" class="md-raised md-primary" ng-click="playlistCreate()" > Create Playlist </md-button>
 
-<h3 ng-repeat-start="list in playlists" ng-click="startPlaylist(list.songs)" ng-hide="editMode" ng-bind="list.name"> </h3>
-<input type="text" ng-model="list.name" ng-show="editMode" />
-<ul>
-	<li ng-repeat="song in list.songs">{{song}}</li>
-</ul>
-
-<button class="btn btn-danger" ng-hide="!editMode" ng-click="playlistDelete(list.name)"ng-bind="'delete ' + list.name + '?'"> </button>
-<button ng-repeat-end class="btn" ng-hide="!editMode" ng-click="playlistEdit(list.name)"> edit </button>
+<div ng-repeat="list in playlists">
+ <playlist data="list"></playlist>
+</div>

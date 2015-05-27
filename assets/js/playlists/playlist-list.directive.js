@@ -21,112 +21,66 @@
     };
   }
 
-  function playlistsController() {
+  playlistsController.$inject = ['songsAvailable', 'playlists'];
+
+  function playlistsController(songsAvailable, playlists) {
+    var self = this;
+
+    self.playlists = angular.copy(playlists.get());
+
+    self.editMode = false;
+
+    function _init() {
+    }
+
+    _init();
+
+    function _updatePlaylists() {
+      angular.copy(playlists.get(), self.playlists);
+    }
+
+    self.createPlaylist = function() {
+      var currentlyPlaying = songsAvailable.getCurrentlyPlaying();
+      var playlist = {name: new Date(), songs: _.pluck(currentlyPlaying, 'name')};
+      playlist.editMode = false;
+      playlists.create(playlist);
+      _updatePlaylists();
+    };
+
+    self.toggleEditMode = function() {
+      self.editMode = !self.editMode;
+      console.log(self.editMode);
+      return self.editMode;
+    };
+
+    self.playlistDelete = function(playlistObj) {
+      playlists.delete(playlistObj);
+    }
 
   }
 
-  playlistsLink.$inject = ['$filter', '$localStorage'];
-
-  function playlistsLink($scope, element, attributes, $filter, $localStorage) {
-    $scope.$storage = $localStorage;
+  function playlistsLink($scope, element, attributes, playlistCtrl) {
+    $scope.playlists = playlistCtrl.playlists;
     $scope.editMode = false;
 
-    $scope.playlists = $scope.$storage.playlists || [];
-    $scope.samplePlaylists = [
-      {
-        name: 'one',
-        songs: ['rain', 'birds']
-      },
-      {
-        name: 'rain only',
-        songs: ['rain']
-      }
-    ];
-
-    /**
-     * Save current playlists and their content to localstorage
-     */
-    var _savePlaylists = function() {
-      console.log('saved playlist');
-      $scope.$storage.playlists = $scope.playlists;
+    $scope.playlistCreate = function() {
+      playlistCtrl.createPlaylist();
     };
 
-    /**
-     * Find a song object given the song name
-     * @param {string} name Name of a song
-     */
-    var _findSongByName = function(name) {
-      return $filter('filter')($scope.available, {name:name});
+    $scope.editPlaylist = function(playlistObj) {
+      //$scope.editMode = playlistCtrl.toggleEditMode();
+      playlistObj.editMode = !playlistObj.editMode;
+      console.log(playlistObj.editMode);
     };
 
-    /**
-     * finds the index number of a playlist
-     * @param {string} playlistName Name of the desired playlist
-     */
-    var _findPlaylistByName = function(playlistName) {
-      var playlistsLen = $scope.playlists.length;
-      for (var i = 0; i < playlistsLen - 1 ; i++) {
-        if ($scope.playlists[i].name == playlistName) {
-          break;
-        }
-      }
-      return i;
+    $scope.editPlaylist = function() {
+
     };
 
-    /**
-     * Add a sample set of playlists
-     */
-    $scope.copySampleLists = function() {
-      angular.copy($scope.samplePlaylists, $scope.playlists);
+    $scope.playlistDelete = function(playlistObj) {
+      console.log('11');
+      playlistCtrl.playlistDelete(playlistObj);
     }
 
-    /**
-     * Toggles the edit mode for the playlists
-     */
-    $scope.playlistToggleEditMode = function() {
-      $scope.editMode = !$scope.editMode;
-    };
-
-    /**
-     * delete a playlist and save it to localStorage
-     * @param {string} playlistName [description]
-     */
-    $scope.playlistDelete = function(playlistName) {
-      var playlistIndex = _findPlaylistByName(playlistName);
-      $scope.playlists.splice(playlistIndex, 1);
-      _savePlaylists();
-    };
-
-    /**
-     * Edit the current playlist to the currently selected songs
-     * @param {string} playlistName Name of the playlist
-     */
-    $scope.playlistEdit = function(playlistName) {
-      var playlistIndex = _findPlaylistByName(playlistName);
-      console.log(playlistIndex);
-
-      $scope.playlists[playlistIndex].songs = [];
-
-      angular.forEach($scope.available, function(sound) {
-        if(sound.playing == true) {
-          $scope.playlists[playlistIndex].songs.push(sound.name);
-        }
-      });
-      _savePlaylists();
-    };
-
-    /**
-     * Cycle through the songs in a playlist and play them
-     * @param {array} songs Array of song names to play
-     */
-    $scope.startPlaylist = function(songs) {
-      angular.forEach($scope.available, function(song) {
-        $scope.songPause(song);
-      });
-      angular.forEach(songs, function(song) {
-        var songObj = _findSongByName(song);
-        $scope.songAdd(songObj[0]);
-      });
-    };
   }
 })(angular.module('playlists'));

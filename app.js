@@ -19,13 +19,13 @@ if ('development' === env) {
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 
-var default_port = 80;
+var default_port = 8081;
 if (app.get('env') === 'development') {
     default_port = 8080;
 }
 
 var port = process.env.PORT || default_port;
-app.set('port', port);
+app.set('port', 8888);
 
 // Start server
 app.listen(app.get('port'), function(){

@@ -1,0 +1,12 @@
+<md-input-container flex>
+  <label>Playlist Name</label>
+  <input ng-model="data.name" value="new playlist">
+</md-input-container>
+
+<md-button aria-label="create playlist" class="md-fab md-mini md-primary" ng-click="edit(playlist)">
+  <ng-md-icon icon="save"></ng-md-icon>
+</md-button>
+
+<ul>
+  <li ng-repeat="song in data.songs">{{song}}</li>
+</ul>

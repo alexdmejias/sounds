@@ -13,6 +13,7 @@ angular
   	'ngStorage',
     'ngMaterial',
     'ngAnimate',
+    'ngMdIcons',
 
     'playlists',
     'songs'

@@ -4,11 +4,11 @@ body {
   padding-bottom: 20px; }
 
 .song-list {
-  width: 60%;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
-  flex-direction: row; }
+  flex-direction: row;
+  transition: opacity 400ms ease-out 50ms; }
 
 .song-tile {
   border: 1px solid #626262;

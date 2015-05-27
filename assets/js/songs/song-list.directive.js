@@ -22,44 +22,30 @@
       }
   }
 
-  songListController.$inject = ['songsAvailable', '$filter', 'soundsDir'];
+  songListController.$inject = ['$scope', 'songsAvailable', 'settings'];
 
-  function songListController(songsAvailable, $filter, soundsDir) {
+  function songListController($scope, songsAvailable, settings) {
     var self = this;
     self.songsAvailable = '';
     self.globalSound = true;
+    self.settings = settings.get();
+
+
+    $scope.$on('settingsChanged', function(event, args) {
+      console.log(args);
+      self.settings = args;
+    });
 
     songsAvailable.getSongs()
       .then(function(data) {
         self.songsAvailable = data;
         angular.forEach(self.songsAvailable, function(song) {
-          song.volume = 0.5;
+          song.volume = 50;
         })
       });
-    /**
-     * creates a new song object
-     * @param  {string} songName The name of the song object to create.
-     *  Which corresponds with the name in the data file.
-     * @return {Object}
-     */
-    var _newSong = function(songName) {
-      var song = new Audio(songName);
-      song.loop = true;
-      return song;
-    };
 
     self.getCurrentlyPlaying = function() {
-      return $filter('filter')(self.songsAvailable, {playing: true}, true);
-    };
-
-    /**
-     * Creates the Audio object for a song and then plays it
-     * @param {object} songObj Song object for which to create the Audio element
-     */
-    self.songAdd = function(songObj) {
-      songObj.audio = _newSong(soundsDir + songObj.url);
-      songObj.ready = true;
-      self.songPlay(songObj);
+      return songsAvailable.getCurrentlyPlaying();
     };
 
     /**
@@ -67,11 +53,7 @@
      * @param {object} songObj Song object from list of songs
      */
     self.songPlay = function(songObj) {
-      songObj.playing = true;
-      // only start playing if global sound is on
-      if (self.globalSound === true) {
-        songObj.audio.play();
-      }
+      songsAvailable.songPause(songObj);
     };
 
     /**
@@ -79,51 +61,43 @@
      * @param {object} songObj Song object from list of songs
      */
     self.songPause = function(songObj) {
-      songObj.playing = false;
-      if (songObj.ready) {
-        songObj.audio.pause();
-      }
-    };
-
-    self.getSongByName = function(name) {
-      return $filter('filter')(self.songsAvailable, {name:name}, true)[0];
+      songsAvailable.songPause(songObj);
     };
 
     /**
      * Plays or pauses a song. Creates the songs Audio element if necessary
-     * @param {string} name Name of the song to toggle, from array of songs
+     * @param {string} songObj Name of the song to toggle, from array of songs
      */
-    self.toggleSong = function(name) {
-      var song = self.getSongByName(name);
-      if (typeof(song.audio) === 'undefined') {
-        self.songAdd(song);
-      } else {
-        if (song.playing === true) {
-          self.songPause(song);
-        } else {
-          self.songPlay(song);
-        }
+    self.toggleSong = function(songObj) {
+      if (self.settings.globalSound === false) {
+        settings.set('globalSound', true);
       }
+
+      songsAvailable.toggleSong(songObj);
     };
 
     /**
      * Toggles all of the currently playing songs in the application
      */
     self.toggleGlobalSound = function() {
-      self.currentlyPlaying = self.getCurrentlyPlaying();
-      if (self.globalSound === true) {
+      if (self.settings.globalSound === true) {
+        self.currentlyPlaying = self.getCurrentlyPlaying();
+        console.log('hi', self.currentlyPlaying);
         angular.forEach(self.currentlyPlaying, function(value) {
-          value.audio.pause();
+          console.log('----', value);
+          songsAvailable.songPause(value);
         });
-      } else {
-        angular.forEach(self.currentlyPlaying, function(value) {
-          value.audio.play();
-        });
-      }
-      // toggle global sound
-      self.globalSound = !self.globalSound;
-    };
 
+        settings.set('globalSound', false);
+      } else {
+        console.log('bye', self.currentlyPlaying);
+        angular.forEach(self.currentlyPlaying, function(value) {
+          console.info('+++++', value);
+          songsAvailable.songPlay(value);
+        });
+        settings.set('globalSound', true);
+      }
+    };
   }
 
   function songListLink($scope, $element, $attrs, songListController) {
@@ -137,7 +111,7 @@
      * @param {object} songObj Song object from array of songs
      */
     $scope.setVolume = function(songObj) {
-      songObj.audio.volume = songObj.volume;
+      songObj.audio.volume = songObj.volume / 100;
     };
 
     $scope.toggleGlobalSound = function() {
