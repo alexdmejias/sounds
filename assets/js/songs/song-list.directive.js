@@ -82,22 +82,23 @@
     self.toggleGlobalSound = function() {
       if (self.settings.globalSound === true) {
         self.currentlyPlaying = self.getCurrentlyPlaying();
-        console.log('hi', self.currentlyPlaying);
         angular.forEach(self.currentlyPlaying, function(value) {
-          console.log('----', value);
-          songsAvailable.songPause(value);
+          self.setVolume(value, 0);
         });
 
         settings.set('globalSound', false);
       } else {
-        console.log('bye', self.currentlyPlaying);
         angular.forEach(self.currentlyPlaying, function(value) {
-          console.info('+++++', value);
-          songsAvailable.songPlay(value);
+          self.setVolume(value, value.lastVolume);
         });
         settings.set('globalSound', true);
       }
     };
+
+    self.setVolume = function(song, newVolume) {
+      songsAvailable.setVolume(song, newVolume);
+    };
+
   }
 
   function songListLink($scope, $element, $attrs, songListController) {

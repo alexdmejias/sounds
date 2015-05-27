@@ -81,10 +81,7 @@ angular.module('soundsApp')
     };
 
     service.toggleSong = function(songName) {
-      var song = songName;
-      if (_.isString(songName)) {
-        song = _getByName(songName);
-      }
+      var song = _identifySong(songName);
 
       if (!song.audio) {
         _newSong(song.name);
@@ -103,6 +100,16 @@ angular.module('soundsApp')
 
     service.getByName = function(name) {
       _getByName(name);
+    };
+
+    service.setVolume = function(name, newVolume) {
+      var song = _identifySong(name);
+
+      if (song.volume > 0) {
+        song.lastVolume = song.volume;
+      }
+      song.volume = newVolume;
+      song.audio.volume = newVolume / 100;
     };
 
 
