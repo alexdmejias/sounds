@@ -19,6 +19,7 @@
     "grunt-express-server": "^0.4.19",
     "grunt-graphviz": "^0.1.1",
     "grunt-notify": "^0.4.1",
+    "grunt-s3-sync": "^0.4.3",
     "grunt-sass": "^0.18.1",
     "jshint-stylish": "^0.2.0",
     "load-grunt-tasks": "^0.4.0",

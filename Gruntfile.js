@@ -14,9 +14,12 @@ module.exports = function (grunt) {
     dist: './dist'
   };
 
+  var creds = grunt.file.readJSON('./creds.json');
+
   grunt.initConfig({
 
     yeoman: appConfig,
+    creds: creds,
 
     sass: {
       options: {
@@ -86,7 +89,21 @@ module.exports = function (grunt) {
           port: 8080
         }
       }
-    }
+    },
+    's3-sync': {
+      options: {
+        key: '<%= creds.key %>',
+        secret: '<%= creds.secret %>',
+        bucket: '<%= creds.bucket%>'
+      },
+      dist: {
+        files: [{
+          root: './',
+          src: ['assets/**'],
+          dest: './'
+        }]
+      },
+    },
 
   });
 
@@ -100,4 +117,5 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build', ['angular_architecture_graph', 'sass:dev']);
+  grunt.registerTask('sss', ['s3-sync:dist']);
 };
