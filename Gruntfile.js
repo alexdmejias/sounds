@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         tasks: ['angular_architecture_graph']
       },
       html: {
-        files: ['<%= yeoman.public %>/js/**/*.html', 'views/index.ejs'],
+        files: ['<%= yeoman.public %>/index.html', '<%= yeoman.public %>/partials/**/*.html'],
         options: {
           livereload: true
         },
@@ -102,9 +102,8 @@ module.exports = function (grunt) {
           src: ['assets/**'],
           dest: './'
         }]
-      },
-    },
-
+      }
+    }
   });
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
