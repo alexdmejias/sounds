@@ -16,8 +16,9 @@ if ('development' === env) {
 }
 
 // Routes
-app.get('/', routes.index);
-app.get('/partials/:name', routes.partials);
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/assets/index.html'));
+});
 
 var default_port = 8081;
 if (app.get('env') === 'development') {
