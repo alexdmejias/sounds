@@ -6,8 +6,8 @@
 * @description
 * # songList
 */
-(function(app) {
-  app.directive('songList', songList);
+(function() {
+  angular.module('songs').directive('songList', songList);
 
   songList.$inject= [];
 
@@ -119,4 +119,4 @@
       songListController.toggleGlobalSound();
     }
   }
-}(angular.module('songs')));
+})();

@@ -7,5 +7,11 @@
  * # dataPath
  * Constant in the soundsApp.
  */
-angular.module('soundsApp')
-  .constant('dataPath', window.location.origin + '/data.json');
+
+(function() {
+  // var path = 'https://s3-us-west-2.amazonaws.com/alexdmejias-sounds/data/data.json';
+  // if (window.location.hostname === 'localhost') {
+    var path = './data/data.json';
+  // }
+  angular.module('soundsApp').constant('dataPath', path);
+})();

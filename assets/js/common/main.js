@@ -8,7 +8,8 @@
  * Controller of the soundsApp
  */
 
-angular.module('soundsApp')
-  .controller('MainCtrl', function ($scope, $filter, $localStorage, songsAvailable) {
+(function() {
+  angular.module('soundsApp').controller('MainCtrl', function ($scope, $filter, $localStorage, songsAvailable) { });
+})();
 
-});
+

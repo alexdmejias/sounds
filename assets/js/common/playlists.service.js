@@ -1,5 +1,5 @@
-(function(app) {
-  app.factory('playlists', playlists);
+(function() {
+  angular.module('soundsApp').factory('playlists', playlists);
 
   playlists.$inject = ['$localStorage', 'notifications'];
 
@@ -47,4 +47,4 @@
 
     return service;
   }
-})(angular.module('soundsApp'));
+})();

@@ -1,5 +1,5 @@
-(function(app) {
-  app.directive('playlist', playlist);
+(function() {
+  angular.module('playlists').directive('playlist', playlist);
 
   function playlist() {
     return {
@@ -17,19 +17,19 @@
 
   function playlistController() {
     var self = this;
-    
+
     self.editMode = false;
-    
+
 
   }
 
   function playlistLink($scope, elem, attrs, controller) {
     $scope.editMode = controller.editMode;
-    
+
     $scope.edit = function() {
       console.log('editing');
       controller.editMode = !controller.editMode;
       console.log(controller.editMode );
     }
   }
-})(angular.module('playlists'));
+})();

@@ -8,18 +8,23 @@
  *
  * Main module of the application.
  */
-angular
-  .module('soundsApp', [
-  	'ngStorage',
-    'ngMaterial',
-    'ngAnimate',
-    'ngMdIcons',
+(function() {
+    angular.module('songs', []);
+    angular.module('playlists', []);
 
-    'playlists',
-    'songs'
-  ])
-  .config(function($mdThemingProvider) {
-    $mdThemingProvider.theme('default')
-      .primaryPalette('blue-grey')
-      .accentPalette('orange');
-  });
+    angular
+      .module('soundsApp', [
+        'ngStorage',
+        'ngMaterial',
+        'ngAnimate',
+        'ngMdIcons',
+        //'templates-dist',
+        'playlists',
+        'songs'
+      ])
+      .config(function ($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+          .primaryPalette('blue-grey')
+          .accentPalette('orange');
+      });
+})();

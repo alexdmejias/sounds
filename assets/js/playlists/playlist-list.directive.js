@@ -6,9 +6,9 @@
  * @description
  * # playlist
  */
-(function(app) {
+(function() {
 
-  app.directive('playlistList', playlistList);
+  angular.module('playlists').directive('playlistList', playlistList);
 
   function playlistList() {
     return {
@@ -83,4 +83,4 @@
     }
 
   }
-})(angular.module('playlists'));
+})();

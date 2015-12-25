@@ -1,6 +1,6 @@
-(function(app) {
+(function() {
 
-  app.factory('settings', settings);
+  angular.module('soundsApp').factory('settings', settings);
 
   settings.$inject = ['$rootScope'];
 
@@ -32,4 +32,4 @@
     return service;
   }
 
-})(angular.module('soundsApp'));
+})();

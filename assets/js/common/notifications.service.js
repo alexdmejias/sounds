@@ -1,5 +1,5 @@
-(function(app) {
-  app.factory('notifications', notifications);
+(function() {
+  angular.module('soundsApp').factory('notifications', notifications);
 
   notifications.$inject = ['$mdToast'];
 
@@ -18,4 +18,4 @@
     return service;
   }
 
-})(angular.module('soundsApp'));
+})();

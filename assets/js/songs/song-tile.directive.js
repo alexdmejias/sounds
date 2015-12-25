@@ -1,5 +1,5 @@
-(function(app) {
-  app.directive('songTile', songTile);
+(function() {
+  angular.module('songs').directive('songTile', songTile);
 
   songTile.$inject = [];
 
@@ -76,4 +76,4 @@
     };
   }
 
-}(angular.module('songs')));
+})();

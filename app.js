@@ -8,7 +8,8 @@ var app = express();
 
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + '/assets'));
+//app.use(express.static(__dirname + '/assets'));
+app.use(express.static('./assets'));
 
 var env = process.env.NODE_ENV || 'development';
 if ('development' === env) {

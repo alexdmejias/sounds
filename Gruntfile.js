@@ -32,7 +32,7 @@ module.exports = function (grunt) {
         }
       },
       dist: {
-        files: { '<%= yeoman.public %>/css/styles.css': '<%= yeoman.public %>/scss/styles.scss'},
+        files: { './.tmp/css/styles.min.css': '<%= yeoman.public %>/scss/styles.scss'},
         options: {
           outputStyle: 'compressed'
         }
@@ -99,9 +99,72 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           root: './',
-          src: ['assets/**'],
-          dest: './'
+          src: ['./dist'],
+          dest: './*'
         }]
+      }
+    },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/css/styles.min.css': ['<%= yeoman.public %>/lib/angular-material/angular-material.css', './.tmp/css/styles.min.css']
+        }
+      }
+    },
+    processhtml: {
+      options: {},
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/index.html': ['<%= yeoman.public %>/index.html']
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        options: {mangle: false},
+        files: {
+          '<%= yeoman.dist %>/js/app.min.js': ['./.tmp/app.concat.js'],
+          '<%= yeoman.dist %>/js/lib.min.js': ['./.tmp/lib.concat.js']
+        }
+      }
+    },
+    concat: {
+      dist: {
+        src: ['<%= yeoman.public %>/js/app.js', './.tmp/templates.js', '<%= yeoman.public %>/js/*/*.js'],
+        //dest: './.tmp/app.concat.js'
+        dest: './dist/js/app.min.js'
+      },
+      lib: {
+        src: ['./.tmp/bower/*.js', '!./.tmp/bower/angular.js'],
+        dest: './dist/js/lib.min.js'
+      }
+    },
+    bower: {
+      dist: {
+        dest: './.tmp/bower'
+      }
+    },
+    clean: ['./.tmp'],
+    html2js: {
+      options: {
+        rename: function(module) {
+          //../assets/js/playlists/playlist-list.tmpl.html
+          //js/songs/song-list.tmpl.html
+          return module.replace('../assets/', '');
+        }
+      },
+      dist: {
+        src: ['<%= yeoman.public %>/js/**/*.tmpl.html'],
+        dest: './.tmp/templates.js'
+      },
+    },
+    copy: {
+      dist: {
+        files: [
+          {expand: true, cwd:'./assets/', src: ['data/*'], dest: './dist/'},
+          {expand: true, cwd:'./assets/', src: ['sounds/*'], dest: './dist/'},
+
+        ]
       }
     }
   });
@@ -115,6 +178,8 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('build', ['angular_architecture_graph', 'sass:dev']);
+  //grunt.registerTask('build', ['clean', 'processhtml', 'sass:dist', 'bower:dist', 'concat', 'uglify']);
+  grunt.registerTask('build', ['clean', 'processhtml', 'bower:dist', 'sass:dist', 'html2js', 'concat', 'cssmin', 'copy']);
   grunt.registerTask('sss', ['s3-sync:dist']);
+  grunt.registerTask('default', 'serve');
 };

@@ -7,8 +7,9 @@
  * # songsAvailable
  * Factory in the soundsApp.
  */
-angular.module('soundsApp')
-  .factory('songsAvailable', function ($http, $q, dataPath, soundsDir) {
+
+(function() {
+  angular.module('soundsApp').factory('songsAvailable', function ($http, $q, dataPath, soundsDir) {
     var _songs;
     var service = {};
 
@@ -116,3 +117,4 @@ angular.module('soundsApp')
     return service;
 
   });
+})();
