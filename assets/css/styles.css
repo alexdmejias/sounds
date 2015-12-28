@@ -10,12 +10,18 @@ body {
 .song-card {
   border: 1px solid #626262;
   margin: 3px;
-  opacity: 0.2;
+  opacity: 0.4;
   background: #37474F;
   transition: all 400ms ease-out 50ms;
   color: #ccc; }
 
 .song-card:hover, .song-card.playing {
   opacity: 1; }
+
+md-card-actions, md-slider {
+  width: 100%; }
+
+.invisible {
+  opacity: 0 !important; }
 
 /*# sourceMappingURL=styles.css.map */

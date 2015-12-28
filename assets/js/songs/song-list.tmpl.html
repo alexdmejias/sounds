@@ -9,20 +9,21 @@
     </md-card-content>
     <md-card-actions layout="row" layout-align="end center">
       <md-card-actions layout="row" layout-align="end center">
+        <md-slider
+          ng-model="song.volume"
+          ng-change="setVolume(song)"
+          ng-class="song.playedBefore? '': 'invisible'"
+          ng-disabled="!song.audio || !song.playing"
+          aria-label="volume"
+          min="0"
+          max="100">
+        </md-slider>
         <md-button ng-click="toggleSong(song.name)" ng-bind="song.playing? 'Pause': 'Play'"></md-button>
       </md-card-actions>
   </md-card>
   <!--<md-grid-list class="song-list" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px" >-->
     <!--<md-grid-tile class="song-tile" ng-class="{'playing': song.playing}" md-rowspan="1" md-colspan="1"  ng-repeat="song in songListCtrl.songsAvailable">-->
       <!--<h3>-->
-        <!--<md-slider-->
-          <!--ng-model="song.volume"-->
-          <!--ng-change="setVolume(song)"-->
-          <!--ng-disabled="!song.audio || !song.playing"-->
-          <!--aria-label="volume"-->
-          <!--min="0"-->
-          <!--max="100">-->
-        <!--</md-slider>-->
       <!--</h3>-->
       <!--<md-grid-tile-footer ng-click="toggleSong(song.name)">-->
         <!--<h3 ng-bind="song.title"></h3>-->

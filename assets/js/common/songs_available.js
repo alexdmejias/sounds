@@ -1,3 +1,5 @@
+/* global angular */
+/* global _ */
 'use strict';
 
 /**
@@ -20,7 +22,7 @@
           deferred.resolve(data);
           _songs = data;
         });
-      return deferred.promise
+      return deferred.promise;
     };
 
     var _getByName = function(name) {
@@ -43,8 +45,8 @@
       song.audio = new Audio(url);
       song.audio.loop = true;
       song.ready = true;
+      song.playedBefore = false;
     };
-
 
     var _identifySong = function(param) {
       var song = param;
@@ -70,6 +72,7 @@
 
       song.playing = true;
       song.audio.play();
+      song.playedBefore = true;
       console.log('now playing %s', song.name);
     };
 

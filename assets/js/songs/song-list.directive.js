@@ -40,7 +40,7 @@
       .then(function(data) {
         self.songsAvailable = data;
         angular.forEach(self.songsAvailable, function(song) {
-          song.volume = 50;
+          song.volume = 0;
         })
       });
 
