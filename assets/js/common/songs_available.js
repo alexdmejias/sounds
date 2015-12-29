@@ -19,16 +19,6 @@
     var _songs;
     var service = {};
 
-    service.getSongs = function() {
-      var deferred = $q.defer();
-      $http.get(dataPath)
-        .success(function(data) {
-          deferred.resolve(data);
-          _songs = data;
-        });
-      return deferred.promise;
-    };
-
     var _getByName = function(name) {
       return _.findWhere(_songs, {name: name});
     };
@@ -48,6 +38,7 @@
       var url = soundsDir + song.url;
       song.audio = new Audio(url);
       song.audio.loop = true;
+      song.audio.volume = 0;
       song.ready = true;
       song.playedBefore = false;
     };
@@ -62,6 +53,19 @@
     };
 
     // API ////////////////////////
+
+    service.getSongs = function() {
+      var deferred = $q.defer();
+      $http.get(dataPath)
+        .success(function(data) {
+          _songs = data;
+          angular.forEach(_songs, function(value) {
+            value.volume = 0;
+          })
+          deferred.resolve(_songs);
+        });
+      return deferred.promise;
+    };
 
     service.get = function() {
       return _songs;

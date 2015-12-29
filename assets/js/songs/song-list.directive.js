@@ -9,17 +9,17 @@
 (function() {
   angular.module('songs').directive('songList', songList);
 
-  songList.$inject= [];
+  songList.$inject = [];
 
   function songList() {
-      return {
-        templateUrl: 'js/songs/song-list.tmpl.html',
-        restrict: 'A',
-        scope: {},
-        controller: songListController,
-        controllerAs: 'songListCtrl',
-        link: songListLink
-      }
+    return {
+      templateUrl: 'js/songs/song-list.tmpl.html',
+      restrict: 'A',
+      scope: {},
+      controller: songListController,
+      controllerAs: 'songListCtrl',
+      link: songListLink
+    }
   }
 
   songListController.$inject = ['$scope', 'songsAvailable', 'settings'];
@@ -39,9 +39,6 @@
     songsAvailable.getSongs()
       .then(function(data) {
         self.songsAvailable = data;
-        angular.forEach(self.songsAvailable, function(song) {
-          song.volume = 0;
-        })
       });
 
     self.getCurrentlyPlaying = function() {
