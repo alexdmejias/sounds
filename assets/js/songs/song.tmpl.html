@@ -1,0 +1,22 @@
+<md-card class="song-card" ng-class="{'playing': songCtrl.playing}">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{song.title}}{{songCtrl.test}}</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+  </md-card-content>
+  <md-card-actions layout="row" layout-align="end center">
+    <md-card-actions layout="row" layout-align="end center">
+      <md-slider
+        ng-model="songCtrl.audio.volume"
+        ng-class="songCtrl.playedBefore? '': 'invisible'"
+        aria-label="volume"
+        ng-change="songCtrl.setVolume()"
+        min="0"
+        max="1"
+        step=".1">
+      </md-slider>
+      <md-button ng-click="songCtrl.toggle()" ng-bind="songCtrl.playing? 'Pause': 'Play'"></md-button>
+    </md-card-actions>
+</md-card>

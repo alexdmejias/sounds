@@ -61,6 +61,7 @@
           _songs = data;
           angular.forEach(_songs, function(value) {
             value.volume = 0;
+            value.fullUrl = soundsDir + value.url;
           })
           deferred.resolve(_songs);
         });
