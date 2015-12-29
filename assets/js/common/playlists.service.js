@@ -1,5 +1,5 @@
 (function() {
-  angular.module('soundsApp').factory('playlists', playlists);
+  angular.module('common').factory('playlists', playlists);
 
   playlists.$inject = ['$localStorage', 'notifications'];
 

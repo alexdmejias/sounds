@@ -12,6 +12,5 @@
   if (window.location.hostname === 'localhost') {
     path = './sounds/';
   }
-  angular.module('soundsApp').constant('soundsDir', path);
+  angular.module('common').constant('soundsDir', path);
 })();
-

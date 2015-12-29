@@ -13,5 +13,5 @@
   // if (window.location.hostname === 'localhost') {
     var path = './data/data.json';
   // }
-  angular.module('soundsApp').constant('dataPath', path);
+  angular.module('common').constant('dataPath', path);
 })();

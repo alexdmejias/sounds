@@ -1,5 +1,5 @@
 (function() {
-  angular.module('soundsApp').factory('notifications', notifications);
+  angular.module('common').factory('notifications', notifications);
 
   notifications.$inject = ['$mdToast'];
 

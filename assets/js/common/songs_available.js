@@ -11,7 +11,11 @@
  */
 
 (function() {
-  angular.module('soundsApp').factory('songsAvailable', function ($http, $q, dataPath, soundsDir) {
+  angular.module('common').factory('songsAvailable', songsAvailable);
+
+  songsAvailable.$inject = ['$http', '$q', 'dataPath', 'soundsDir'];
+
+  function songsAvailable($http, $q, dataPath, soundsDir) {
     var _songs;
     var service = {};
 
@@ -116,8 +120,7 @@
       song.audio.volume = newVolume / 100;
     };
 
-
     return service;
 
-  });
+  }
 })();
