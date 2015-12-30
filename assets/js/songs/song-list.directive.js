@@ -41,38 +41,6 @@
         self.songsAvailable = data;
       });
 
-    self.getCurrentlyPlaying = function() {
-      return songsAvailable.getCurrentlyPlaying();
-    };
-
-    /**
-     * Play a song
-     * @param {object} songObj Song object from list of songs
-     */
-    self.songPlay = function(songObj) {
-      songsAvailable.songPause(songObj);
-    };
-
-    /**
-     * Pause a song
-     * @param {object} songObj Song object from list of songs
-     */
-    self.songPause = function(songObj) {
-      songsAvailable.songPause(songObj);
-    };
-
-    /**
-     * Plays or pauses a song. Creates the songs Audio element if necessary
-     * @param {string} songObj Name of the song to toggle, from array of songs
-     */
-    self.toggleSong = function(songObj) {
-      if (self.settings.globalSound === false) {
-        settings.set('globalSound', true);
-      }
-
-      songsAvailable.toggleSong(songObj);
-    };
-
     /**
      * Toggles all of the currently playing songs in the application
      */
@@ -92,26 +60,9 @@
       }
     };
 
-    self.setVolume = function(song, newVolume) {
-      songsAvailable.setVolume(song, newVolume);
-    };
-
   }
 
   function songListLink($scope, $element, $attrs, songListController) {
-
-    $scope.toggleSong = function(name) {
-      songListController.toggleSong(name);
-    };
-
-    /**
-     * Set the volume of a song to its own volume property
-     * @param {object} songObj Song object from array of songs
-     */
-    $scope.setVolume = function(songObj) {
-      songObj.audio.volume = songObj.volume / 100;
-    };
-
     $scope.toggleGlobalSound = function() {
       songListController.toggleGlobalSound();
     }
