@@ -29,7 +29,8 @@
     self.songsAvailable = '';
     self.globalSound = true;
     self.settings = settings.get();
-
+    self.pausedSongs = [];
+    self.currentlyPlayingSongs = [];
 
     $scope.$on('settingsChanged', function(event, args) {
       console.log(args);
@@ -45,20 +46,18 @@
      * Toggles all of the currently playing songs in the application
      */
     self.toggleGlobalSound = function() {
-      if (self.settings.globalSound === true) {
-        self.currentlyPlaying = self.getCurrentlyPlaying();
-        angular.forEach(self.currentlyPlaying, function(value) {
-          self.setVolume(value, 0);
-        });
-
-        settings.set('globalSound', false);
-      } else {
-        angular.forEach(self.currentlyPlaying, function(value) {
-          self.setVolume(value, value.lastVolume);
-        });
-        settings.set('globalSound', true);
-      }
+      self.globalSound = !self.globalSound;
+      $scope.$broadcast('toggleGlobalSounds');
     };
+
+    $scope.$on('songToggled', function(scope, args) {
+      var index = self.currentlyPlayingSongs.indexOf(args.songName);
+      if (index < 0 ) {
+        self.currentlyPlayingSongs.push(args.songName);
+      } else {
+        self.currentlyPlayingSongs.splice(index, 1);
+      }
+    });
 
   }
 
