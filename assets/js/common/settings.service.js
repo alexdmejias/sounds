@@ -11,7 +11,7 @@
     var service = {};
 
     service.set = function(settingName, settingValue) {
-      if (_.isUndefined(settingValue)) {
+      if (!settingValue) {
         _settings = settingName;
       } else {
         _settings[settingName] = settingValue;
@@ -22,7 +22,7 @@
     };
 
     service.get = function(settingName) {
-      if (_.isUndefined(settingName)) {
+      if (!settingName) {
         return _settings;
       } else {
         return _settings[settingName];
