@@ -36,8 +36,8 @@
       self.audio.volume = volume;
     };
 
-    self.changedVolume = function() {
-      console.log(self.audio.volume);
+    self.onVolumeChanged = function() {
+      console.debug('song: %s, changed its volume to %f', $scope.song.name, self.audio.volume);
     };
 
     self.toggle = function() {

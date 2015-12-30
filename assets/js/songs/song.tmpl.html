@@ -12,7 +12,7 @@
         ng-model="songCtrl.audio.volume"
         ng-class="songCtrl.playedBefore? '': 'invisible'"
         aria-label="volume"
-        ng-change="songCtrl.changedVolume()"
+        ng-change="songCtrl.onVolumeChanged()"
         min="0"
         max="1"
         step=".1">
