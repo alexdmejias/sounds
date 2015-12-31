@@ -46,17 +46,21 @@
      * Toggles all of the currently playing songs in the application
      */
     self.toggleGlobalSound = function() {
+      $scope.$broadcast('toggleGlobalSounds', {mute: self.globalSound});
       self.globalSound = !self.globalSound;
-      $scope.$broadcast('toggleGlobalSounds');
     };
 
     $scope.$on('songToggled', function(scope, args) {
       var index = self.currentlyPlayingSongs.indexOf(args.songName);
-      if (index < 0 ) {
-        self.currentlyPlayingSongs.push(args.songName);
-      } else {
-        self.currentlyPlayingSongs.splice(index, 1);
+      if (self.globalSound) {
+        if (index < 0 ) {
+          self.currentlyPlayingSongs.push(args.songName);
+        } else {
+          self.currentlyPlayingSongs.splice(index, 1);
+        }
+        console.debug('changed self.currentlyPlayingSongs to', self.currentlyPlayingSongs);
       }
+
     });
 
   }

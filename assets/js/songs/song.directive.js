@@ -6,7 +6,7 @@
   function song() {
     return {
       scope: {
-        song: '=songObj',
+        song: '=songObj'
       },
       restrict: 'A',
       templateUrl: 'js/songs/song.tmpl.html',
@@ -24,7 +24,7 @@
 
     self.playing = false;
     self.playedBefore = false;
-    self.pausedByGlobal = false;
+    self.muted = false;
 
     var _songInit = function() {
       self.audio = new Audio($scope.song.fullUrl);
@@ -40,42 +40,48 @@
 
     var _pauseSong = function() {
       self.audio.pause();
-      _setVolume(0);
     };
 
     var _playSong = function() {
+      if (!self.playedBefore) {
+        _songInit();
+      }
+
       self.audio.play();
       self.playedBefore = true;
-      if (self.audio.previousVolume === 0) {
-        _setVolume(.5);
-      } else {
-        _setVolume(self.audio.previousVolume);
-      }
     };
 
-    $scope.$on('toggleGlobalSounds', function(){
-      if (self.playing) {
-        self.pausedByGlobal = true;
-        self.toggle();
-      } else if (self.pausedByGlobal) {
-        self.pausedByGlobal = false;
-        self.toggle();
-      }
+    $scope.$on('toggleGlobalSounds', function(scope, args){
+      self.toggleGlobalMute(args);
     });
 
     self.onVolumeChanged = function() {
       console.debug('song: %s, changed its volume to %f', $scope.song.name, self.audio.volume);
     };
 
-    self.toggle = function() {
-      if (!self.playedBefore) {
-        _songInit();
+    self.toggleGlobalMute = function(value) {
+      if (self.playedBefore) {
+        if (value.mute) {
+          _pauseSong();
+        } else {
+          _playSong();
+        }
       }
+    };
+
+    self.toggle = function() {
 
       if (self.playing) {
         _pauseSong();
+        _setVolume(0);
       } else {
         _playSong();
+
+        if (self.audio.previousVolume === 0) {
+          _setVolume(.5);
+        } else {
+          _setVolume(self.audio.previousVolume);
+        }
       }
 
       self.playing = !self.playing;

@@ -2,4 +2,4 @@
   <div song ng-repeat="song in songListCtrl.songsAvailable" song-obj="song" flex-gt-sm="20" flex="25"></div>
 </div>
 
-<md-button aria-label="mute all sounds" ng-click="songListCtrl.toggleGlobalSound()" class="md-raised md-primary" ng-bind="(songListCtrl.settings.globalSound ? 'Mute': 'Play') + ' All Sounds'"></md-button>
+<md-button aria-label="mute all sounds" ng-click="songListCtrl.toggleGlobalSound()" class="md-raised md-primary" ng-bind="(songListCtrl.globalSound ? 'Mute': 'Play') + ' All Sounds'"></md-button>
