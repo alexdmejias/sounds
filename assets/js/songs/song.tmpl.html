@@ -1,7 +1,7 @@
 <md-card class="song-card" ng-class="{'playing': songCtrl.playing}">
   <md-card-title>
     <md-card-title-text>
-      <span class="md-headline">{{song.title}}{{songCtrl.test}}</span>
+      <span class="md-headline">{{song.title}}</span>
     </md-card-title-text>
   </md-card-title>
   <md-card-content>
@@ -17,6 +17,10 @@
         max="1"
         step=".1">
       </md-slider>
-      <md-button ng-click="songCtrl.toggle()" ng-bind="songCtrl.playing? 'Pause': 'Play'"></md-button>
+      <md-button
+        ng-click="songCtrl.toggle()"
+        aria-label="Play {{song.title}}"
+        ng-bind="songCtrl.playing? 'Pause': 'Play'">
+      </md-button>
     </md-card-actions>
 </md-card>
