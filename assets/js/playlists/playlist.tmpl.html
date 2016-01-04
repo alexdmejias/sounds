@@ -1,12 +1,7 @@
-<md-input-container flex>
-  <label>Playlist Name</label>
-  <input ng-model="data.name" value="new playlist">
-</md-input-container>
-
-<md-button aria-label="create playlist" class="md-fab md-mini md-primary" ng-click="edit(playlist)">
-  <ng-md-icon icon="play_arrow"></ng-md-icon>
-</md-button>
-
-<ul>
-  <li ng-repeat="song in data.songs">{{song}}</li>
-</ul>
+<md-list-item class="secondary-button-padding">
+  <div class="md-list-item-text" layout="column">
+    <h3>{{ data.name }}</h3>
+    <p>{{ data.name }}</p>
+  </div>
+  <md-button class="md-secondary" ng-click="doSecondaryAction($event)">Play</md-button>
+</md-list-item>

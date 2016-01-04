@@ -1,6 +1,8 @@
 <h2>playlists</h2>
-<md-button aria-label="create playlist" class="md-raised md-primary" ng-click="playlistCreate()" > Create Playlist </md-button>
+<md-button aria-label="create playlist" class="md-raised md-primary" ng-click="playlistsCtrl.playlistCreate()">
+  Create Playlist
+</md-button>
 
-<div ng-repeat="list in playlists">
- <playlist data="list"></playlist>
-</div>
+<md-list>
+  <div playlist ng-repeat="list in playlists" data="list"> </div>
+</md-list>

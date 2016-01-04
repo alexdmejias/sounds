@@ -4,7 +4,7 @@
   function playlist() {
     return {
       templateUrl: 'js/playlists/playlist.tmpl.html',
-      restrict: 'E',
+      restrict: 'AE',
       scope: {
         data: '=data'
       },
