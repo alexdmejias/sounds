@@ -13,23 +13,12 @@
       link: playlistLink
     };
   }
-  playlistController.$inject = [];
+  playlistController.$inject = ['$scope'];
 
-  function playlistController() {
+  function playlistController($scope) {
     var self = this;
-
-    self.editMode = false;
-
-
   }
 
   function playlistLink($scope, elem, attrs, controller) {
-    $scope.editMode = controller.editMode;
-
-    $scope.edit = function() {
-      console.log('editing');
-      controller.editMode = !controller.editMode;
-      console.log(controller.editMode );
-    }
   }
 })();
