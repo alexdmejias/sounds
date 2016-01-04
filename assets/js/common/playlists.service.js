@@ -24,18 +24,12 @@
       return _playlists;
     };
 
-    service.getByName = function(name) {
-      return _.findWhere(_get(), {name: name});
-    };
-
     service.create = function(options) {
       var success;
       if (options.songs && options.songs.length > 0) {
         if (!options.name) {
           options.name = options.songs.join(', ');
         }
-
-        // options.index
 
         $localStorage.playlists.push(options);
         _set($localStorage.playlists);
