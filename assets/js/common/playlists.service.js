@@ -1,9 +1,9 @@
 (function() {
-  angular.module('common').factory('playlists', playlists);
+  angular.module('common').factory('PlaylistsService', PlaylistsService);
 
-  playlists.$inject = ['$localStorage', '$mdToast'];
+  PlaylistsService.$inject = ['$localStorage', '$mdToast'];
 
-  function playlists($localStorage, $mdToast) {
+  function PlaylistsService($localStorage, $mdToast) {
     var _playlists = $localStorage.playlists || [];
 
     var service = {};

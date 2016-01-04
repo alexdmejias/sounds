@@ -21,25 +21,25 @@
     };
   }
 
-  playlistsController.$inject = ['songsAvailable', 'playlists', '$mdToast'];
+  playlistsController.$inject = ['songsAvailable', 'PlaylistsService', '$mdToast'];
 
-  function playlistsController(songsAvailable, playlists, $mdToast) {
+  function playlistsController(songsAvailable, PlaylistsService, $mdToast) {
     var self = this;
 
     self.playlistCreate = function() {
       var currentlyPlaying = songsAvailable.getPlaying();
-      playlists.create({songs: currentlyPlaying});
+      PlaylistsService.create({songs: currentlyPlaying});
     };
 
     self.updatePlaylists = function() {
-      self.playlists = playlists.get();
+      self.playlists = PlaylistsService.get();
     }
 
     self.onDelete = function(index) {
       console.log('on delete from parent controller', index);
-      // _playlists.splice(index, 1);
+      // _PlaylistsService.splice(index, 1);
 
-      playlists.delete(index);
+      PlaylistsService.delete(index);
 
       self.updatePlaylists();
     }
