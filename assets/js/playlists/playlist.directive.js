@@ -6,7 +6,7 @@
       templateUrl: 'js/playlists/playlist.tmpl.html',
       restrict: 'AE',
       scope: {
-        data: '=data',
+        playlist: '=playlistObj',
         onDelete: '&onDelete'
       },
       controller: playlistController,

@@ -36,8 +36,6 @@
     }
 
     self.onDelete = function(index) {
-      console.log('on delete from parent controller', index);
-      // _PlaylistsService.splice(index, 1);
 
       PlaylistsService.delete(index);
 
@@ -51,7 +49,6 @@
     _init();
   }
 
-  function playlistsLink($scope, element, attributes, playlistCtrl) {
-    // $scope.playlists = playlistCtrl.getPlaylists();
+  function playlistsLink($scope, element, attributes, playlistsController) {
   }
 })();
