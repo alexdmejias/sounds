@@ -61,8 +61,6 @@
         console.debug('changed self.currentlyPlayingSongs to', self.currentlyPlayingSongs);
       }
 
-      songsAvailable.setPlaying(self.currentlyPlayingSongs);
-
     });
 
     songsAvailable.setPlaying(self.currentlyPlayingSongs);
