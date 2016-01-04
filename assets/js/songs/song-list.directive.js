@@ -63,6 +63,8 @@
 
     });
 
+    songsAvailable.setPlaying(self.currentlyPlayingSongs);
+
   }
 
   function songListLink($scope, $element, $attrs, songListController) {

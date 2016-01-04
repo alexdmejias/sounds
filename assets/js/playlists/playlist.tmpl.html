@@ -2,9 +2,9 @@
   <section layout="row" flex="100">
     <h3 flex="60">{{data.name}}</h3>
     <section layout="row" flex="40">
-      <md-button class="md-primary">Play</md-button>
-      <md-button class="md-primary">Edit</md-button>
-      <md-button class="md-warn">Remove</md-button>
+      <md-button ng-click="playlistCtrl.play()" class="md-primary">Play</md-button>
+      <md-button ng-click="playlistCtrl.edit()" class="md-primary">Edit</md-button>
+      <md-button ng-click="onDelete($index)" class="md-warn">Remove</md-button>
     </section>
   </section>
   <section>

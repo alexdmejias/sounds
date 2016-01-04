@@ -6,17 +6,27 @@
       templateUrl: 'js/playlists/playlist.tmpl.html',
       restrict: 'AE',
       scope: {
-        data: '=data'
+        data: '=data',
+        onDelete: '&onDelete'
       },
       controller: playlistController,
       controllerAs: 'playlistCtrl',
       link: playlistLink
     };
   }
-  playlistController.$inject = ['$scope'];
+  playlistController.$inject = ['$scope', 'playlists'];
 
-  function playlistController($scope) {
+  function playlistController($scope, playlists) {
     var self = this;
+
+    self.play = function() {
+      console.log('play');
+    }
+
+    self.edit = function() {
+      console.log('edit');
+    }
+
   }
 
   function playlistLink($scope, elem, attrs, controller) {

@@ -4,5 +4,6 @@
 </md-button>
 
 <md-list>
-  <div playlist ng-repeat="list in playlists" data="list"> </div>
+  <div ng-if="playlistsCtrl.playlists.length > 0" playlist ng-repeat="list in playlistsCtrl.playlists" data="list" on-delete=playlistsCtrl.onDelete($index)> </div>
+  <div ng-if="!playlistsCtrl.playlists.length > 0"> No Playlists</div>
 </md-list>

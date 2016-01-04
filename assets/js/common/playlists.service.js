@@ -1,9 +1,9 @@
 (function() {
   angular.module('common').factory('playlists', playlists);
 
-  playlists.$inject = ['$localStorage', 'notifications'];
+  playlists.$inject = ['$localStorage', '$mdToast'];
 
-  function playlists($localStorage, notifications) {
+  function playlists($localStorage, $mdToast) {
     var _playlists = $localStorage.playlists || [];
 
     var service = {};
@@ -29,20 +29,30 @@
     };
 
     service.create = function(options) {
-      if (options.name && options.songs) {
+      var success;
+      if (options.songs && options.songs.length > 0) {
+        if (!options.name) {
+          options.name = options.songs.join(', ');
+        }
+
+        // options.index
+
         $localStorage.playlists.push(options);
         _set($localStorage.playlists);
-        notifications.simple('playlist created');
+        $mdToast.showSimple('Created Playlist: ' + options.songs.join(', '));
       } else if (!options.songs) {
-        console.log('wasdwasdwasd');
-        notifications.simple('wasd');
+        $mdToast.showSimple('the playlist did not have any songs');
       }
+
+      return success;
     };
 
-    service.delete = function(playlistObj) {
-      var without = _.without(service.get(), _.findWhere(service.get(), {name: playlistObj.name}));
-      console.log(without);
-      _set(without);
+    service.delete = function(index) {
+      // var without = _.without(service.get(), _.findWhere(service.get(), {name: playlistObj.name}));
+      // console.log(without);
+      _playlists.splice(index, 1);
+      return _playlists;
+      // _set(without);
     };
 
     return service;

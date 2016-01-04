@@ -17,6 +17,7 @@
 
   function songsAvailable($http, $q, dataPath, soundsDir) {
     var _songs;
+    var _playing;
     var service = {};
 
     // API ////////////////////////
@@ -33,6 +34,22 @@
         });
       return deferred.promise;
     };
+
+    service.get = function() {
+      return _songs;
+    };
+
+    service.set = function(songs) {
+      _songs = songs;
+    };
+
+    service.setPlaying = function(playing) {
+      _playing = playing;
+    };
+
+    service.getPlaying = function() {
+      return _playing;
+    }
 
     return service;
 
