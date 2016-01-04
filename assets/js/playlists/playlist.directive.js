@@ -14,9 +14,9 @@
       link: playlistLink
     };
   }
-  playlistController.$inject = ['$scope', 'PlaylistsService'];
+  playlistController.$inject = ['$scope'];
 
-  function playlistController($scope, PlaylistsService) {
+  function playlistController($scope) {
     var self = this;
 
     self.play = function() {
