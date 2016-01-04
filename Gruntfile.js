@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         tasks: ['angular_architecture_graph']
       },
       html: {
-        files: ['<%= yeoman.public %>/index.html', '<%= yeoman.public %>/partials/**/*.html'],
+        files: ['<%= yeoman.public %>/index.html', '<%= yeoman.public %>/partials/**/*.html', '<%= yeoman.public %>/js/**/*.html'],
         options: {
           livereload: true
         },
