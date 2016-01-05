@@ -28,6 +28,7 @@
 
     self.playlistCreate = function() {
       var currentlyPlaying = songsAvailable.getPlaying();
+
       PlaylistsService.create({songs: currentlyPlaying});
     };
 
@@ -36,9 +37,7 @@
     }
 
     self.onDelete = function(index) {
-
       PlaylistsService.delete(index);
-
       self.updatePlaylists();
     }
 

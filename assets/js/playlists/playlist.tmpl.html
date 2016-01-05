@@ -1,14 +1,13 @@
 <md-content layout="column" layout-wrap>
   <section layout="row" flex="100">
-    <h3 flex="60">{{playlist.name}}</h3>
+    <h3 flex="60">{{playlistCtrl.name}}</h3>
     <section layout="row" flex="40">
       <md-button ng-click="playlistCtrl.play()" class="md-primary">Play</md-button>
-      <md-button ng-click="playlistCtrl.edit()" class="md-primary">Edit</md-button>
       <md-button ng-click="onDelete($index)" class="md-warn">Remove</md-button>
     </section>
   </section>
   <section>
-    <md-chips ng-model="playlist.songs" readonly="true">
+    <md-chips ng-model="playlistCtrl.songs" readonly="true">
       <md-chip-template>
           {{$chip}}
       </md-chip-template>

@@ -42,11 +42,8 @@
     };
 
     service.delete = function(index) {
-      // var without = _.without(service.get(), _.findWhere(service.get(), {name: playlistObj.name}));
-      // console.log(without);
       _playlists.splice(index, 1);
       return _playlists;
-      // _set(without);
     };
 
     return service;

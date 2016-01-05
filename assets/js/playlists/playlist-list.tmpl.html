@@ -8,7 +8,7 @@
     playlist
     ng-if="playlistsCtrl.playlists.length > 0"
     ng-repeat="list in playlistsCtrl.playlists"
-    playlist-obj="list" 
+    playlist-prop="list"
     on-delete=playlistsCtrl.onDelete($index)>
   </div>
   <div ng-if="!playlistsCtrl.playlists.length > 0"> No Playlists</div>

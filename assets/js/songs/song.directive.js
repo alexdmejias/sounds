@@ -10,7 +10,6 @@
       },
       restrict: 'A',
       templateUrl: 'js/songs/song.tmpl.html',
-      require: '^songList',
       controller: songController,
       controllerAs: 'songCtrl',
       link: songLink
@@ -93,6 +92,6 @@
 
   }
 
-  function songLink($scope, $element, $attrs, songListController) {
+  function songLink($scope, $element, $attrs) {
   }
 })();
