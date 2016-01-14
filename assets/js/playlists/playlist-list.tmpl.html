@@ -1,15 +1,23 @@
-<h2>playlists</h2>
-<md-button aria-label="create playlist" class="md-raised md-primary" ng-click="playlistsCtrl.playlistCreate()">
-  Create Playlist
-</md-button>
-
-<md-list>
-  <div
-    playlist
-    ng-if="playlistsCtrl.playlists.length > 0"
-    ng-repeat="list in playlistsCtrl.playlists"
-    playlist-prop="list"
-    on-delete=playlistsCtrl.onDelete($index)>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Playlists</h2>
+    <span flex></span>
+    <md-button aria-label="create playlist" class="md-raised md-accent" ng-click="playlistsCtrl.playlistCreate()">
+      Create Playlist
+    </md-button>
   </div>
-  <div ng-if="!playlistsCtrl.playlists.length > 0"> No Playlists</div>
-</md-list>
+</md-toolbar>
+
+<md-content>
+
+  <md-list>
+    <div
+      playlist
+      ng-if="playlistsCtrl.playlists.length > 0"
+      ng-repeat="list in playlistsCtrl.playlists"
+      playlist-prop="list"
+      on-delete=playlistsCtrl.onDelete($index)>
+    </div>
+    <div ng-if="!playlistsCtrl.playlists.length > 0"> No Playlists</div>
+  </md-list>
+</md-content>
