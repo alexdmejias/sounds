@@ -1,11 +1,18 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px; }
+  /*padding-top: 20px;
+  padding-bottom: 20px;*/
+}
 
+.wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 .main-container {
   width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 .song-card {
   border: 1px solid #626262;
