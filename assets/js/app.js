@@ -12,6 +12,7 @@
     angular.module('common', []);
     angular.module('songs', []);
     angular.module('playlists', []);
+    angular.module('backgroundModule', []);
 
     angular
       .module('soundsApp', [
@@ -21,6 +22,7 @@
         'ngMdIcons',
         //'templates-dist',
         'common',
+        'backgroundModule',
         'playlists',
         'songs'
       ])

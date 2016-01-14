@@ -21,6 +21,7 @@
   <script type="text/javascript" src="./lib/angular-animate/angular-animate.js"></script>
   <script type="text/javascript" src="./lib/angular-aria/angular-aria.js"></script>
   <script type="text/javascript" src="./lib/ngstorage/ngStorage.js"></script>
+  <script type="text/javascript" src="./lib/trianglify/dist/trianglify.min.js"></script>
   <!-- /build -->
 
   <!-- build:js ./js/app.min.js -->
@@ -34,6 +35,8 @@
 	<script type="text/javascript" src="./js/common/notifications.service.js"></script>
 	<script type="text/javascript" src="./js/common/settings.service.js"></script>
 
+  <script type="text/javascript" src="./js/background/background.directive.js"></script>
+
 	<!--<script type="text/javascript" src="./js/playlists/playlists.js"></script>-->
 	<script type="text/javascript" src="./js/playlists/playlist-list.directive.js"></script>
 	<script type="text/javascript" src="./js/playlists/playlist.directive.js"></script>
@@ -45,6 +48,7 @@
 </head>
 <body>
 
+  <canvas background></canvas>
   <div class="wrapper" ng-controller="MainCtrl as ctrl">
 
     <md-toolbar>
