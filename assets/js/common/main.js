@@ -9,5 +9,6 @@
  */
 
 (function() {
-  angular.module('common').controller('MainCtrl', function ($scope, $filter, $localStorage, songsAvailable) { });
+  angular.module('common').controller('MainCtrl', function () {
+  });
 })();
