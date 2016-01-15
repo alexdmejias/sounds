@@ -2,31 +2,37 @@
   {
     "name": "stream",
     "title": "Stream",
-    "url": "stream.wav"
+    "url": "stream.wav",
+    "color": "red"
   },
   {
     "name": "rainforest",
     "title": "Rainforest",
-    "url": "rainforest.mp3"
+    "url": "rainforest.mp3",
+    "color": "green"
   },
   {
     "name": "rain",
     "title": "Rain",
-    "url": "rain.wav"
+    "url": "rain.wav",
+    "color": "navy"
   },
   {
     "name": "sea",
     "title": "Open Sea",
-    "url": "open_sea.wav"
+    "url": "open_sea.wav",
+    "color": "darkslategrey"
   },
   {
     "name": "jungle",
     "title": "Jungle",
-    "url": "jungle.wav"
+    "url": "jungle.wav",
+    "color": "yellow"
   },
   {
     "name": "swamp",
     "title": "Swamp",
-    "url": "swamp.wav"
+    "url": "swamp.wav",
+    "color": "white"
   }
 ]
