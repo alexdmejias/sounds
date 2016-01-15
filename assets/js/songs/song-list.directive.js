@@ -58,6 +58,8 @@
         } else {
           self.currentlyPlayingSongs.splice(index, 1);
         }
+
+        songsAvailable.setCurrentlyPlaying(self.currentlyPlayingSongs);
         console.debug('changed self.currentlyPlayingSongs to', self.currentlyPlayingSongs);
       }
 
