@@ -16,7 +16,8 @@
   songsAvailable.$inject = ['$http', '$q', 'dataPath', 'soundsDir'];
 
   function songsAvailable($http, $q, dataPath, soundsDir) {
-    var _songs;
+    var _songs = [];
+    var _currentlyPlaying = [];
     var service = {};
 
     // API ////////////////////////
@@ -33,6 +34,22 @@
         });
       return deferred.promise;
     };
+
+    service.setCurrentlyPlaying = function(songs) {
+      _currentlyPlaying = songs;
+    }
+
+    service.getCurrentlyPlaying = function(getObj) {
+      if (getObj && _songs.length) {
+        return _songs.filter(function(s) {
+          return _currentlyPlaying.indexOf(s.name) >= 0;
+        });
+      } else {
+        return _currentlyPlaying;
+      }
+    }
+
+
 
     return service;
 
