@@ -1,0 +1,1109 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"arg",
+				"arg1"
+			],
+			[
+				"da",
+				"damage"
+			],
+			[
+				"get",
+				"getHealth"
+			],
+			[
+				"he",
+				"health_"
+			],
+			[
+				"total",
+				"total_orders"
+			],
+			[
+				"qu",
+				"quantities"
+			],
+			[
+				"quan",
+				"quantity"
+			],
+			[
+				"for",
+				"forEach	Meteor: cursor.forEach(callback)"
+			],
+			[
+				"re",
+				"redraws"
+			],
+			[
+				"used",
+				"usedNumbers"
+			],
+			[
+				"check",
+				"checkEdges"
+			],
+			[
+				"dot",
+				"dotDelay"
+			],
+			[
+				"do",
+				"dotDelay"
+			],
+			[
+				"flash",
+				"flashDotOrDash"
+			],
+			[
+				"fill",
+				"retinaFillStyle"
+			],
+			[
+				"rei",
+				"retinaSize"
+			],
+			[
+				"reti",
+				"retinaSize"
+			],
+			[
+				"mouse",
+				"mouseVec"
+			],
+			[
+				"retina",
+				"retinaY"
+			],
+			[
+				"ren",
+				"render"
+			],
+			[
+				"rec",
+				"rect	rect"
+			],
+			[
+				"bac",
+				"background	background grey"
+			],
+			[
+				"si",
+				"size	size"
+			],
+			[
+				"x",
+				"xspeed"
+			],
+			[
+				"seria",
+				"Serial"
+			],
+			[
+				"Seria",
+				"serialInArray"
+			],
+			[
+				"ser",
+				"serialCount"
+			],
+			[
+				"serial",
+				"serialCount"
+			],
+			[
+				"seri",
+				"serialInArray"
+			],
+			[
+				"inc",
+				"incomingData"
+			],
+			[
+				"incmo",
+				"incomingData"
+			],
+			[
+				"data",
+				"dataToSend2"
+			],
+			[
+				"w",
+				"write"
+			],
+			[
+				"mouseD",
+				"mousePressed"
+			],
+			[
+				"println",
+				"println	println text"
+			],
+			[
+				"section",
+				"sectionWidth"
+			],
+			[
+				"split",
+				"splitBy"
+			],
+			[
+				"lat",
+				"latMap"
+			],
+			[
+				"my",
+				"myData"
+			],
+			[
+				"print",
+				"println	println var"
+			],
+			[
+				"prin",
+				"println	println var"
+			],
+			[
+				"setup",
+				"setup	setup"
+			],
+			[
+				"radian",
+				"radiansVar"
+			],
+			[
+				"rect",
+				"rect	rectMode"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"box",
+				"boxWidth"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					""
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Run sketch fullscreen"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Build & run sketch"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Build & run sketch fullscreen"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a 32-bit linux application"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a 64-bit linux application"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a macosx application"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a 32-bit windows application"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a 64-bit windows application"
+				]
+			],
+			[
+				"Packages/Processing/Processing 3.sublime-build",
+				"Run sketch fullscreen"
+			]
+		],
+		[
+			[
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					""
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Run sketch fullscreen"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Build & run sketch"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Build & run sketch fullscreen"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a 32-bit linux application"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a 64-bit linux application"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a macosx application"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a 32-bit windows application"
+				],
+				[
+					"Packages/Processing/Processing 3.sublime-build",
+					"Export sketch as a 64-bit windows application"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					""
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Run sketch fullscreen"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a 32-bit linux application"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a 64-bit linux application"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a macosx application"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a 32-bit windows application"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a 64-bit windows application"
+				]
+			],
+			[
+				"Packages/Processing/Processing 3.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Processing/Processing.sublime-build",
+					""
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Run sketch fullscreen"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a 32-bit linux application"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a 64-bit linux application"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a macosx application"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a 32-bit windows application"
+				],
+				[
+					"Packages/Processing/Processing.sublime-build",
+					"Export sketch as a 64-bit windows application"
+				]
+			],
+			[
+				"Packages/Processing/Processing.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "new",
+		"selected_items":
+		[
+			[
+				"new",
+				"ANF: New File"
+			],
+			[
+				"dupl",
+				"File: Duplicate"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"renmae",
+				"File: Rename"
+			],
+			[
+				"dupli",
+				"File: Duplicate"
+			],
+			[
+				"renam",
+				"File: Rename"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"instalp",
+				"Package Control: Install Package"
+			],
+			[
+				"add re",
+				"Package Control: Add Repository"
+			],
+			[
+				"spaces",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"set syntax: c",
+				"Set Syntax: C++"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"re",
+				"File: Rename"
+			],
+			[
+				"build",
+				"Build With: Processing - Run sketch fullscreen"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"proce",
+				"Build With: Processing 3 - Build & run sketch"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"s",
+				"Set Syntax: Arduino"
+			],
+			[
+				"serialeve",
+				"Snippet: Arduino serialEvent()"
+			],
+			[
+				"serial",
+				"Snippet: Arduino Serial.println()"
+			],
+			[
+				"convert",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"delete",
+				"ANF: Delete Current File"
+			],
+			[
+				"processi",
+				"Set Syntax: Processing"
+			],
+			[
+				"process",
+				"Set Syntax: Processing"
+			],
+			[
+				"remove pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"map",
+				"View: Toggle Minimap"
+			],
+			[
+				"side",
+				"View: Toggle Open Files in Side Bar"
+			]
+		],
+		"width": 577.0
+	},
+	"console":
+	{
+		"height": 773.0,
+		"history":
+		[
+			"clear()",
+			"clear",
+			"clear()",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/alexmejias/Seafile/Projects/Web/sounds"
+	],
+	"file_history":
+	[
+		"/Users/alexmejias/Seafile/Projects/Web/markd-laravel/markd/database/migrations/2015_12_29_045433_create_tasks_table.php",
+		"/Users/alexmejias/Seafile/Projects/Web/markd-laravel/Homestead.yaml",
+		"/Users/alexmejias/.oh-my-zsh/oh-my-zsh.sh",
+		"/Users/alexmejias/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/alexmejias/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/tower-of-babel/module-default-export-main.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/tower-of-babel/extend.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/tower-of-babel/modules-deafult-export-module.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/tower-of-babel/modules-deafult-export-main.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/tower-of-babel/module-default-export-module.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/tower-of-babel/block-scope.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/tower-of-babel/babel-setup.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/tower-of-babel/class.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/lololodash/7.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/lololodash/9.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/lololodash/6.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/lololodash/8.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/lololodash/5.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/lololodash/4.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/lololodash/2.js",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/lololodash/3.js",
+		"/Users/alexmejias/Desktop/test.js",
+		"/Users/alexmejias/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/alexmejias/Seafile/Projects/Web/nodeschool/test-anything/log-it-out.js",
+		"/Users/alexmejias/Seafile/Projects/Web/blog-revival/my-project/public/content/01-projects/01-side-projects/30-nature-of-code/nature-of-code.txt",
+		"/Users/alexmejias/Seafile/Projects/Web/blog-revival/my-project/public/content/01-projects/01-side-projects/10-timer-reminder/timer-reminder.txt",
+		"/Users/alexmejias/Seafile/Projects/Web/blog2015/blog2/orion/collections/projects.js",
+		"/Users/alexmejias/Seafile/Projects/Web/blog2015/blog2/routes.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/2/7/_Mover.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/2/7/app.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/2/8/_Mover.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/2/8/app.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/2/6/app.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/1/3/app.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/2/6/_Attractor.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/1/10/_Mover.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/2/6/_Mover.js",
+		"/Users/alexmejias/Seafile/Projects/Web/photon-oled/photon-oled/.gitignore",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/1/4/app.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/2/eyes/app.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/chapters/2/eyes/_Eye.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/node_modules/grunt-browserify/node_modules/lodash/utility.js",
+		"/Users/alexmejias/Seafile/Projects/Web/Nature-of-Code-JS/modules/utils.js",
+		"/Users/alexmejias/Seafile/Projects/Web/instapaper/insta/package.json",
+		"/Users/alexmejias/Dropbox/Projects/Web/markd/markd/markd.scss",
+		"/Users/alexmejias/Dropbox/Projects/Web/markd/markd/client/views/input/input.js",
+		"/Users/alexmejias/Dropbox/Projects/Web/markd/markd/markd.css",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature/ch1/ex8/ex8.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature/ch1/ex7/ex7.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature/ch1/ex4/ex4.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature/ch1/ex5/ex5.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature/ch1/ex6/ex6.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature/ch1/ex3/ex3.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature/ch1/ex2/ex2.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature/ch1/ex1/ex1.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature/nature.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/sketch_150117b/build-tmp/source/sketch_150117b.java",
+		"/Users/alexmejias/Dropbox/Projects/Processing/sketch_150117b/sketch_150117b.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature_of_code/_template/build-tmp/source/_template.java",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature_of_code/_template/_template.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/sketch_150117b/sketch.properties",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature_of_code/_template/sketch.properties",
+		"/Users/alexmejias/Dropbox/Projects/Processing/nature_of_code/ch1/sketch_150117b.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/NoC_ch1/1_adding_verctors/1-adding-verctors.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/NoC-ch1/data",
+		"/Users/alexmejias/Dropbox/Projects/Arduino/sketch_150301c/sketch_150301c.ino",
+		"/Users/alexmejias/Dropbox/Projects/Arduino/sketch_mar01a/sketch_mar01a.ino",
+		"/Users/alexmejias/Dropbox/Projects/Arduino/sketch_mar01--led-strip-single/sketch_mar01--led-strip-single.ino",
+		"/Users/alexmejias/Documents/Arduino/sketch_150301c/sketch_150301c.ino",
+		"/Users/alexmejias/Dropbox/Projects/Processing/sketch_150301c/sketch.properties",
+		"/Users/alexmejias/Dropbox/Projects/Processing/sketch_150225b/sketch_150225b.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/sketch_150301b/sketch_150301b.pde",
+		"/Users/alexmejias/Dropbox/Projects/Processing/sketch_150225b/sketch.properties",
+		"/Users/alexmejias/Desktop/processing skillshare/MeteorStrikesDataSet.csv",
+		"/Users/alexmejias/Dropbox/Projects/Processing/hype-tests/test01/test01.pde",
+		"/Users/alexmejias/Desktop/html5-animation-source-code/examples/include/utils.js",
+		"/Users/alexmejias/Dropbox/Projects/_Processing/test.pde",
+		"/Users/alexmejias/Projects2/Processing/sketch_150123a/sketch_150123a.pde",
+		"/Users/alexmejias/Desktop/ProcessingTest/Stripe.java",
+		"/Users/alexmejias/Seafile/sounds/Gruntfile.js",
+		"/Users/alexmejias/Seafile/sounds/app/index.html",
+		"/Users/alexmejias/Seafile/sounds/app/scripts/app.js",
+		"/Users/alexmejias/Seafile/sounds/app/scripts/controllers/main.js",
+		"/Users/alexmejias/Seafile/sounds/app/scripts/directives/playlists_list.js",
+		"/Users/alexmejias/Seafile/sounds/app/scripts/services/currently_playing.js",
+		"/Users/alexmejias/Seafile/sounds/app/views/song_list.html",
+		"/Users/alexmejias/Seafile/sounds/app/views/playlists_list.html",
+		"/Users/alexmejias/Seafile/sounds/app/styles/main.css",
+		"/Users/alexmejias/Projects2/Processing/sketch_150123a/sketch.properties",
+		"/Users/alexmejias/Seafile/sounds/node_modules/gulp/node_modules/gulp-util/lib/isNull.js",
+		"/Users/alexmejias/Seafile/sounds/.tmp/styles/main.css",
+		"/Users/alexmejias/Seafile/sounds/node_modules/grunt-contrib-uglify/node_modules/uglify-js/lib/mozilla-ast.js",
+		"/Users/alexmejias/Seafile/sounds/node_modules/main-bower-files/Makefile",
+		"/Users/alexmejias/Seafile/sounds/package.json",
+		"/Users/alexmejias/Seafile/sounds/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argument_parser.js",
+		"/Users/alexmejias/Seafile/sounds/node_modules/grunt-contrib-clean/AUTHORS",
+		"/Users/alexmejias/Seafile/sounds/node_modules/generator-angular/controller/USAGE",
+		"/Users/alexmejias/Seafile/sounds/node_modules/generator-angular/templates/coffeescript/controller.coffee",
+		"/Users/alexmejias/Seafile/sounds/node_modules/protractor/docs/control-flow.md",
+		"/Users/alexmejias/Seafile/sounds/bower_components/hammerjs/CONTRIBUTING.md",
+		"/Users/alexmejias/Seafile/sounds/bower_components/modernizr/feature-detects/css-objectfit.js",
+		"/Users/alexmejias/Seafile/sounds/node_modules/grunt-autoprefixer/CHANGELOG",
+		"/Users/alexmejias/Seafile/sounds/bower.json",
+		"/Users/alexmejias/Seafile/sounds/node_modules/grunt-svgmin/node_modules/svgo/node_modules/sax/test/buffer-overrun.js",
+		"/Users/alexmejias/Seafile/sounds/bower_components/modernizr/feature-detects/css-userselect.js",
+		"/Users/alexmejias/Seafile/sounds/node_modules/grunt-concurrent/node_modules/async/lib/async.js",
+		"/Users/alexmejias/Seafile/sounds/node_modules/generator-karma/node_modules/yeoman-generator/node_modules/inquirer/node_modules/rx/src/core/concurrency/currentthreadscheduler.js",
+		"/Users/alexmejias/Seafile/sounds/node_modules/grunt-google-cdn/node_modules/bower/node_modules/mout/number/currencyFormat.js",
+		"/Users/alexmejias/Seafile/sounds/node_modules/protractor/node_modules/selenium-webdriver/docs/class_goog_Uri.html",
+		"/Users/alexmejias/Documents/Processing/sketch_150117b/sketch_150117b.pde",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/app/routes.php",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/Gruntfile.js",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/app/controllers/SessionsController.php",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/app/config/testing/session.php",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/app/config/session.php",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/vendor/predis/predis/lib/Predis/Command/ServerEvalSHA.php",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/vendor/nikic/php-parser/test/code/parser/stmt/haltCompilerOutermostScope.test-fail",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/vendor/symfony/routing/Symfony/Component/Routing/Router.php",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/vendor/symfony/routing/Symfony/Component/Routing/RouterInterface.php",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/public/library/js/app.js",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/public/library/views/dashboard.html",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/node_modules/grunt-growl/node_modules/underscore/index.html",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/vendor/predis/predis/lib/Predis/ServerException.php",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/public/library/js/services.js",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/app/storage/meta/services.json",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/server_creds.json",
+		"/Users/alexmejias/Dropbox/Projects/pocket-laravel/public/index.php"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 99.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"emacs",
+			"path",
+			"+a",
+			"a",
+			"x",
+			"},",
+			"function",
+			"quantities",
+			"value",
+			"grouped",
+			"function",
+			"_.chain(coll)",
+			".sortBy",
+			"}).",
+			"input",
+			"() {",
+			"()",
+			".reverse()",
+			"hcain",
+			"val",
+			"cities.hot(val);",
+			"every",
+			"size",
+			"1000000",
+			"arg",
+			"EventsEmitter",
+			"_randomNumber",
+			"Math.floor(Math.random() * 9) + 1",
+			"selectedNumbers",
+			"redraw",
+			"checkAnswer",
+			"} ",
+			"console.war",
+			"console.log",
+			"check",
+			"checks",
+			"buttonfra",
+			"usedNumbers",
+			"usedNumber",
+			"select",
+			"selected",
+			"desele",
+			"size",
+			"power",
+			"sideprojects",
+			"projectList",
+			"allowed",
+			"i",
+			"//",
+			"vector",
+			"checkEdges",
+			"opts",
+			"location",
+			"int",
+			"update",
+			"attractor",
+			"retinaX",
+			",",
+			"(this.retinaSize / 2)",
+			"half",
+			"20",
+			"40",
+			"y:",
+			"0",
+			".limit",
+			"limit",
+			"10",
+			"left",
+			"red",
+			"0",
+			"this.",
+			"this.x",
+			"displayRetina",
+			"this.size / 2",
+			"setAxes",
+			"url",
+			"PASSWORD",
+			");",
+			"save",
+			"edit",
+			"this",
+			"FFF",
+			"background",
+			"small",
+			"search",
+			"print",
+			");\n",
+			"wit",
+			"position",
+			"random",
+			"center",
+			" &&",
+			"xpseed",
+			"dataToSend2",
+			"2",
+			"serialCount",
+			"colors",
+			"incomingByte",
+			"[",
+			"int",
+			"ledStrip",
+			"mouseDown",
+			"pressed",
+			"seri",
+			"selectedSection",
+			"height",
+			"incomingByte",
+			"value2",
+			"10",
+			"40",
+			"lng",
+			"int",
+			"400",
+			"([0-9][0-9]\\.)",
+			"0",
+			"WIDTH",
+			"numBoxes",
+			"background",
+			"1",
+			"300",
+			"CanvasSize",
+			"content",
+			"button",
+			"content",
+			"li",
+			"item",
+			"aria",
+			"repeat"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 33.0
+	},
+	"input":
+	{
+		"height": 84.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 178.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sketch_150301c":
+	{
+		"height": 158.0
+	},
+	"output.sketch_mar01--led-strip-single":
+	{
+		"height": 158.0
+	},
+	"output.sketch_mar01a":
+	{
+		"height": 158.0
+	},
+	"output.stino_log":
+	{
+		"height": 158.0
+	},
+	"pinned_build_system": "Packages/Processing/Processing.sublime-build",
+	"project": "sounds.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"app/http",
+				"app/Http/routes.php"
+			],
+			[
+				"routes.",
+				"app/Http/routes.php"
+			],
+			[
+				"database/migrations/",
+				"database/migrations/2015_12_29_045433_create_tasks_table.php"
+			],
+			[
+				"ar",
+				"arrow-function.js"
+			],
+			[
+				"c",
+				"class.js"
+			],
+			[
+				"6",
+				"6.js"
+			],
+			[
+				"5",
+				"5.js"
+			],
+			[
+				"nature",
+				"content/01-projects/01-side-projects/30-nature-of-code/nature-of-code.txt"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"serv",
+				"server_creds.json"
+			],
+			[
+				"publi",
+				"server/publications.js"
+			],
+			[
+				"route",
+				"routes.js"
+			],
+			[
+				"projectslist",
+				"client/views/projects/list/list.js"
+			],
+			[
+				"projecthtml",
+				"client/views/projects/list/list.html"
+			],
+			[
+				"projec",
+				"orion/collections/projects.js"
+			],
+			[
+				"1/10/mo",
+				"chapters/1/10/_Mover.js"
+			],
+			[
+				"mover",
+				"chapters/2/6/_Mover.js"
+			],
+			[
+				"chapter1/3/",
+				"chapters/1/3/app.js"
+			],
+			[
+				"chap2/6mover",
+				"chapters/2/6/_Mover.js"
+			],
+			[
+				"utils.js",
+				"modules/utils.js"
+			],
+			[
+				"utili",
+				"node_modules/grunt-browserify/node_modules/lodash/utility.js"
+			],
+			[
+				"chapters/1/4",
+				"chapters/1/4/app.js"
+			],
+			[
+				"utils",
+				"modules/utils.js"
+			],
+			[
+				"eyeap",
+				"chapters/2/eyes/app.js"
+			],
+			[
+				"26",
+				"chapters/2/6/app.js"
+			],
+			[
+				"eye",
+				"chapters/2/eyes/_Eye.js"
+			],
+			[
+				"ex3",
+				"nature/ch1/ex4/ex3.pde"
+			],
+			[
+				"pde",
+				"sketch_150225b.pde"
+			],
+			[
+				"inde",
+				"app/index.html"
+			],
+			[
+				"maincss",
+				"app/styles/main.css"
+			],
+			[
+				"playlist",
+				"app/views/playlists_list.html"
+			],
+			[
+				"app.js",
+				"app/scripts/app.js"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
+				"index",
+				"app/index.html"
+			],
+			[
+				"current",
+				"app/scripts/services/currently_playing.js"
+			],
+			[
+				"sessi",
+				"app/controllers/SessionsController.php"
+			],
+			[
+				"rout",
+				"app/routes.php"
+			],
+			[
+				"service",
+				"public/library/js/services.js"
+			],
+			[
+				"services",
+				"public/library/js/services.js"
+			],
+			[
+				"index.html",
+				"node_modules/grunt-growl/node_modules/underscore/index.html"
+			],
+			[
+				"contro",
+				"public/library/js/controllers.js"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"profil",
+				".bash_profile"
+			],
+			[
+				"expo",
+				".exports"
+			],
+			[
+				"bash",
+				".bash_profile"
+			],
+			[
+				"boot",
+				"bootstrap.sh"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
