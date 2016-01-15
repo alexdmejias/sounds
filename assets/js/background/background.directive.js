@@ -10,31 +10,70 @@
 
   angular.module('backgroundModule').directive('background', background);
 
-  function background() {
-    return {
-      template: '<div></div>',
-      restrict: 'EA',
-      scope: {},
-      controller: backgroundController,
-      controllerAs: 'backgroundCtrl',
-      link: backgroundLink
+  background.$inject = ['$window', 'songsAvailable'];
+
+  function _getBackground(options) {
+    var params = {
+      width: options.width,
+      height: options.height,
+      cell_size: 40,
+      variance: 1
     };
+
+    if (options.colors && options.colors.length) {
+      params.x_colors = options.colors;
+      params.y_colors = options.colors.reverse();
+    }
+
+    var bg = Trianglify(params);
+
+    console.log(bg.png());
+    bg.canvas(options.element);
   }
 
-  backgroundController.$inject = [];
-
-  function backgroundController() {
+  function _getColors(songObj) {
+    if (songObj && songObj.length) {
+      var colors = [];
+      songObj.reduce(function(init, curr) {
+        colors.push(curr.color)
+      }, colors);
+      return colors
+    } else {
+      return false
+    }
   }
 
-  function backgroundLink($scope, $element, attributes, backgroundCtrl) {
-    var pattern = Trianglify({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
+  function background($window, songsAvailable) {
+    return function ($scope, $element) {
+      var current = songsAvailable.getCurrentlyPlaying(true);
+      var win = angular.element($window);
+      var timer;
 
-    console.log($element[0]);
-    pattern.canvas($element[0])
-    // $element[0].appendChild(pattern.canvas());
-    // console.log($element[0]);
+      _getBackground({
+        width: $window.innerWidth,
+        height: $window.innerHeight,
+        element: $element[0],
+        colors: _getColors(songsAvailable.getCurrentlyPlaying(true))
+      });
+
+      win.bind('resize', function() {
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+
+          var backgroundOptions = {
+            width: $window.innerWidth,
+            height: $window.innerHeight,
+            element: $element[0],
+            colors: _getColors(songsAvailable.getCurrentlyPlaying(true))
+          };
+
+          console.log('just resized, will change background with these optison', backgroundOptions);
+          _getBackground(backgroundOptions);
+
+        }, 100);
+
+      });
+
+    }
   }
 })();
